@@ -1,0 +1,859 @@
+---
+import ParticleCanvas from '../components/ParticleCanvas';
+import '../styles/global.css';
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akarshan Arora — VLSI Engineer & Developer</title>
+  <meta name="description" content="VLSI engineer building interactive educational tools for power delivery networks, circuit analysis, and algorithm visualization." />
+  <link rel="icon" href="/favicon.svg" />
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- Particles -->
+  <ParticleCanvas client:only="react" />
+
+  <!-- Loading Screen -->
+  <div class="loader" id="loader">
+    <div class="loader-text">
+      <span>A</span><span>k</span><span>a</span><span>r</span><span>s</span><span>h</span><span>a</span><span>n</span>
+    </div>
+    <div class="loader-line"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-brand">
+      <div class="nav-dot"></div>
+      <span>Akarshan Arora</span>
+    </a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#services">Mentorship</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.linkedin.com/in/akarshanarora/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero" id="hero">
+    <p class="hero-label" id="hero-label">VLSI Engineer · Interactive Education</p>
+    <h1 class="hero-title" id="hero-title">
+      <span class="line">
+        <span class="word"><span class="word-inner gradient-text">Building</span></span>
+        <span class="word"><span class="word-inner gradient-text">Tools</span></span>
+      </span>
+      <span class="line">
+        <span class="word"><span class="word-inner">That</span></span>
+        <span class="word"><span class="word-inner">Make</span></span>
+        <span class="word"><span class="word-inner">Complex</span></span>
+      </span>
+      <span class="line">
+        <span class="word"><span class="word-inner gradient-text">Concepts</span></span>
+        <span class="word"><span class="word-inner gradient-text">Click</span></span>
+      </span>
+    </h1>
+    <p class="hero-sub" id="hero-sub">
+      I create interactive simulations and visualizations that turn abstract
+      VLSI and software concepts into hands-on learning experiences.
+    </p>
+    <div class="hero-cta" id="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects →</a>
+      <a href="https://github.com/aroraakarshan" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
+    <div class="hero-scroll" id="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- ═══════ MARQUEE ═══════ -->
+  <div class="marquee">
+    <div class="marquee-track" id="marquee-track">
+      <span class="marquee-item">Power Delivery Networks</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">EMIR Analysis</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">AI-Assisted Debug</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Interactive Simulation</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">LLM Agents for CAD</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Physical Design</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Power Delivery Networks</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">EMIR Analysis</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">AI-Assisted Debug</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Interactive Simulation</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">LLM Agents for CAD</span>
+      <span class="marquee-item marquee-dot">·</span>
+      <span class="marquee-item">Physical Design</span>
+      <span class="marquee-item marquee-dot">·</span>
+    </div>
+  </div>
+
+  <!-- ═══════ ABOUT ═══════ -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="about-layout">
+        <div>
+          <p class="section-label" data-reveal>About</p>
+          <h2 class="section-title" data-reveal>10+ years in VLSI<br/>power integrity</h2>
+          <p class="section-desc" data-reveal>
+            Senior EMIR CAD Engineer at <strong>Microsoft</strong>, previously at
+            <strong>Qualcomm</strong> and <strong>NXP</strong>. I build automation
+            and AI-assisted debug workflows that cut analysis turnaround from days
+            to hours — so engineers spend time fixing problems, not finding them.
+          </p>
+        </div>
+        <div class="about-stats">
+          <div class="stat" data-reveal>
+            <div class="stat-value" style="color: var(--accent-blue);">VLSI</div>
+            <div class="stat-label">Power Delivery · EMIR · IR Drop · EM Analysis</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat-value" style="color: var(--accent-green);">Python</div>
+            <div class="stat-label">Automation · Debug Tools · Data Visualization</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat-value" style="color: var(--accent-purple);">CAD</div>
+            <div class="stat-label">Redhawk · SeaScape · Voltus · Quantus · StarRC</div>
+          </div>
+          <div class="stat" data-reveal>
+            <div class="stat-value" style="color: var(--accent-amber);">AI</div>
+            <div class="stat-label">Agent-Assisted Debug · LLM Workflows · MCP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ EXPERIENCE ═══════ -->
+  <section class="section" id="experience">
+    <div class="section-inner">
+      <p class="section-label" data-reveal>Experience</p>
+      <h2 class="section-title" data-reveal>Career Timeline</h2>
+
+      <div class="timeline">
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jul 2024 — Present</div>
+          <div class="timeline-role">Senior EMIR CAD Engineer</div>
+          <div class="timeline-company">Microsoft · Bengaluru</div>
+          <div class="timeline-highlights">
+            <span class="timeline-chip">EMIR</span>
+            <span class="timeline-chip">PDN</span>
+            <span class="timeline-chip">CAD Automation</span>
+            <span class="timeline-chip">AI-Assisted Debug</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Dec 2021 — Jul 2024 · 2 yrs 8 mos</div>
+          <div class="timeline-role">Senior Engineer, Lead</div>
+          <div class="timeline-company">Qualcomm · Bengaluru</div>
+          <div class="timeline-highlights">
+            <span class="timeline-chip">SeaScape view reuse</span>
+            <span class="timeline-chip">78% disk reduction</span>
+            <span class="timeline-chip">50% runtime reduction</span>
+            <span class="timeline-chip">Python debug platform</span>
+            <span class="timeline-chip">Quantus enablement</span>
+            <span class="timeline-chip">1B data point comparison</span>
+            <span class="timeline-chip">TSMC N3E / N4</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Jun 2019 — Dec 2021 · 2 yrs 7 mos</div>
+          <div class="timeline-role">Senior Design Engineer</div>
+          <div class="timeline-company">Qualcomm · Bengaluru</div>
+          <div class="timeline-highlights">
+            <span class="timeline-chip">First elastic compute PDN tool</span>
+            <span class="timeline-chip">Redhawk vs Redhawk-SC</span>
+            <span class="timeline-chip">23M net segment comparison</span>
+            <span class="timeline-chip">PDN CAD flow</span>
+            <span class="timeline-chip">SEC 4LPX / 3LPE</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Apr 2018 — May 2019 · 1 yr 2 mos</div>
+          <div class="timeline-role">Senior Design Engineer</div>
+          <div class="timeline-company">NXP Semiconductors · Noida</div>
+          <div class="timeline-highlights">
+            <span class="timeline-chip">PTPX enablement</span>
+            <span class="timeline-chip">Unified view generation</span>
+            <span class="timeline-chip">Virtuoso SKILL GUI</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">Sep 2015 — Mar 2018 · 2 yrs 7 mos</div>
+          <div class="timeline-role">Design Engineer</div>
+          <div class="timeline-company">NXP Semiconductors · Noida</div>
+          <div class="timeline-highlights">
+            <span class="timeline-chip">PG routing automation</span>
+            <span class="timeline-chip">LYNX flow</span>
+            <span class="timeline-chip">Redhawk enablement</span>
+            <span class="timeline-chip">Voltus views</span>
+            <span class="timeline-chip">Static IR drop</span>
+            <span class="timeline-chip">ICC2</span>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-reveal>
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2011 — 2015</div>
+          <div class="timeline-role">B.Tech — Electronics & Communication</div>
+          <div class="timeline-company">IIIT Allahabad · CGPA 8.68</div>
+          <div class="timeline-highlights">
+            <span class="timeline-chip">ECE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ PROJECTS ═══════ -->
+  <section class="section" id="projects">
+    <div class="section-inner">
+      <p class="section-label" data-reveal>Open Source</p>
+      <h2 class="section-title" data-reveal>Side Projects and Learning Tools</h2>
+      <p class="section-desc" data-reveal style="margin-bottom: 1rem; max-width: 700px;">
+        Things I build on weekends to make VLSI concepts more accessible — interactive, visual, and free for everyone.
+      </p>
+
+      <div class="project-showcase" data-reveal>
+        <a href="https://aroraakarshan.github.io/pdn-toy-tools/" target="_blank" rel="noopener" class="project-card">
+          <!-- Browser mockup visual -->
+          <div class="project-visual">
+            <div class="browser-chrome">
+              <div class="browser-dots">
+                <span style="background:#ff5f57"></span>
+                <span style="background:#febc2e"></span>
+                <span style="background:#28c840"></span>
+              </div>
+              <div class="browser-url">aroraakarshan.github.io/pdn-toy-tools</div>
+            </div>
+            <div class="browser-content">
+              <svg viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+                <!-- Dark bg -->
+                <rect width="500" height="220" fill="#080d18"/>
+                <!-- Isometric power grid mesh -->
+                <g stroke="rgba(6,182,212,0.15)" stroke-width="0.8">
+                  <!-- Horizontal lines -->
+                  <line x1="60" y1="160" x2="440" y2="160"/>
+                  <line x1="80" y1="140" x2="420" y2="140"/>
+                  <line x1="100" y1="120" x2="400" y2="120"/>
+                  <line x1="120" y1="100" x2="380" y2="100"/>
+                  <!-- Vertical lines -->
+                  <line x1="100" y1="100" x2="60" y2="160"/>
+                  <line x1="180" y1="100" x2="140" y2="160"/>
+                  <line x1="260" y1="100" x2="220" y2="160"/>
+                  <line x1="340" y1="100" x2="300" y2="160"/>
+                  <line x1="400" y1="100" x2="380" y2="160"/>
+                </g>
+                <!-- SPR path — glowing route through grid -->
+                <path d="M80 150 L160 130 L240 110 L320 120 L400 105" 
+                  stroke="#06b6d4" stroke-width="2.5" fill="none" opacity="0.9"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <animate attributeName="stroke-dasharray" from="0 600" to="600 0" dur="2s" fill="freeze"/>
+                </path>
+                <path d="M80 150 L160 130 L240 110 L320 120 L400 105" 
+                  stroke="#06b6d4" stroke-width="6" fill="none" opacity="0.12"
+                  stroke-linecap="round"/>
+                <!-- Path nodes -->
+                <circle cx="80" cy="150" r="4" fill="#06b6d4"/>
+                <circle cx="80" cy="150" r="8" fill="#06b6d4" opacity="0.1"/>
+                <circle cx="160" cy="130" r="3" fill="#06b6d4" opacity="0.7"/>
+                <circle cx="240" cy="110" r="3" fill="#06b6d4" opacity="0.7"/>
+                <circle cx="320" cy="120" r="3" fill="#06b6d4" opacity="0.7"/>
+                <circle cx="400" cy="105" r="4" fill="#22c55e"/>
+                <circle cx="400" cy="105" r="8" fill="#22c55e" opacity="0.1"/>
+                <!-- IR drop heatmap zones — subtle colored circles -->
+                <circle cx="180" cy="140" r="30" fill="#ef4444" opacity="0.04"/>
+                <circle cx="300" cy="130" r="25" fill="#f59e0b" opacity="0.04"/>
+                <circle cx="120" cy="150" r="20" fill="#ef4444" opacity="0.03"/>
+                <!-- Labels -->
+                <text x="30" y="25" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600">SPR 3D</text>
+                <text x="30" y="40" fill="#475569" font-size="8" font-family="'JetBrains Mono', monospace">Shortest path resistance</text>
+                <text x="350" y="25" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace" font-weight="600">IR Drop</text>
+                <text x="350" y="40" fill="#475569" font-size="8" font-family="'JetBrains Mono', monospace">Voltage distribution</text>
+                <!-- Source / Sink labels -->
+                <text x="80" y="172" text-anchor="middle" fill="#06b6d4" font-size="8" font-family="'JetBrains Mono', monospace">SRC</text>
+                <text x="400" y="172" text-anchor="middle" fill="#22c55e" font-size="8" font-family="'JetBrains Mono', monospace">SINK</text>
+              </svg>
+            </div>
+          </div>
+          <!-- Info below -->
+          <div class="project-info">
+            <div class="project-tags">
+              <span class="tag tag-blue">VLSI</span>
+              <span class="tag tag-green">3D Interactive</span>
+            </div>
+            <h3 class="project-name">PDN Toy Tools</h3>
+            <p class="project-desc">
+              Interactive 3D power grid analysis in the browser — SPR pathfinding
+              and real-time IR drop visualization.
+            </p>
+            <span class="project-link">Explore Tool →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CONTENT ═══════ -->
+  <section class="section" id="content">
+    <div class="section-inner">
+      <p class="section-label" data-reveal>Content</p>
+      <h2 class="section-title" data-reveal>Videos and Posts</h2>
+      <p class="section-desc" data-reveal>
+        I share bite-sized technical content on VLSI EMIR concepts,
+        Python automation tips, and CAD workflows on LinkedIn.
+      </p>
+
+      <div class="content-grid" data-reveal>
+        <div class="content-card">
+          <span class="content-icon">🎥</span>
+          <h4 class="content-title">VLSI EMIR Concepts</h4>
+          <p class="content-desc">Short explainers on IR drop, electromigration, power grid analysis, and PDN debug techniques.</p>
+        </div>
+        <div class="content-card">
+          <span class="content-icon">🐍</span>
+          <h4 class="content-title">Python for VLSI</h4>
+          <p class="content-desc">Practical Python tips for automation, waveform parsing, data visualization, and scripting CAD tools.</p>
+        </div>
+        <div class="content-card">
+          <span class="content-icon">🤖</span>
+          <h4 class="content-title">AI in Semiconductor</h4>
+          <p class="content-desc">Exploring how LLM agents and AI-assisted workflows are changing CAD debug and design automation.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2rem;" data-reveal>
+        <a href="https://www.linkedin.com/in/akarshanarora/" target="_blank" rel="noopener" class="btn btn-ghost">Follow on LinkedIn →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ WORK WITH ME ═══════ -->
+  <section class="section" id="services">
+    <div class="section-inner">
+      <p class="section-label" data-reveal>Work With Me</p>
+      <h2 class="section-title" data-reveal>Mentorship and Guidance</h2>
+      <p class="section-desc" data-reveal style="margin-bottom: 1rem;">
+        <strong>4.7/5</strong> rating · <strong>40+</strong> sessions · <strong>30</strong> testimonials
+      </p>
+
+      <div class="services-grid" data-reveal>
+        <a href="https://topmate.io/akarshanarora" target="_blank" rel="noopener" class="service-card">
+          <span class="service-icon">🐍</span>
+          <h4 class="service-title">Python for VLSI</h4>
+          <p class="service-desc">For professionals starting their automation journey — interview prep, CLI tools, common pitfalls, VLSI plots.</p>
+        </a>
+        <a href="https://topmate.io/akarshanarora" target="_blank" rel="noopener" class="service-card">
+          <span class="service-icon">⚡</span>
+          <h4 class="service-title">VLSI PDN Guidance</h4>
+          <p class="service-desc">For people seeking job opportunities in VLSI CAD/PDN — power delivery, EMIR analysis, and tool flows.</p>
+        </a>
+        <a href="https://topmate.io/akarshanarora" target="_blank" rel="noopener" class="service-card">
+          <span class="service-icon">🔬</span>
+          <h4 class="service-title">Redhawk SeaScape</h4>
+          <p class="service-desc">Guidance on how to use the SeaScape platform for VLSI power integrity analysis.</p>
+        </a>
+        <a href="https://topmate.io/akarshanarora" target="_blank" rel="noopener" class="service-card">
+          <span class="service-icon">🧭</span>
+          <h4 class="service-title">Career Guidance</h4>
+          <p class="service-desc">Navigating career paths in VLSI, CAD development, and the semiconductor industry.</p>
+        </a>
+      </div>
+
+      <!-- Testimonials -->
+      <div class="testimonials" data-reveal>
+        <div class="testimonial-track" id="testimonial-track">
+          <div class="testimonial">
+            <p>"Superb easy explanation. Good insight provided overall about EMIR learning."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"First session was very helpful, with introduction of Python basics. Looking for more sessions on dashboard development."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"Very nice session and your way of explanation is pretty good. Looking forward to listening at you again."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"Insightful session — he gave me pointers where I should focus, and materials to use. Overall very helpful."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"Really helpful as a kickstart to learning Python for VLSI. He also guided to additional resources."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <!-- Duplicate for seamless loop -->
+          <div class="testimonial">
+            <p>"Superb easy explanation. Good insight provided overall about EMIR learning."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"First session was very helpful, with introduction of Python basics. Looking for more sessions on dashboard development."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"Very nice session and your way of explanation is pretty good. Looking forward to listening at you again."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"Insightful session — he gave me pointers where I should focus, and materials to use. Overall very helpful."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+          <div class="testimonial">
+            <p>"Really helpful as a kickstart to learning Python for VLSI. He also guided to additional resources."</p>
+            <span class="testimonial-rating">★★★★★</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CONTACT ═══════ -->
+  <section class="section" id="contact">
+    <div class="section-inner">
+      <p class="section-label" data-reveal>Contact</p>
+      <h2 class="section-title" data-reveal>Let's Connect</h2>
+      <p class="section-desc" data-reveal>
+        Interested in VLSI tools, interactive education, or collaboration?
+      </p>
+      <div class="contact-chips" data-reveal>
+        <a href="https://topmate.io/akarshanarora" target="_blank" rel="noopener" class="chip chip-primary">🎯 Book a Session</a>
+        <a href="https://github.com/aroraakarshan" target="_blank" rel="noopener" class="chip">⚡ GitHub</a>
+        <a href="https://www.linkedin.com/in/akarshanarora/" target="_blank" rel="noopener" class="chip">💼 LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer class="footer">
+    <div class="footer-left">© 2026 Akarshan Arora</div>
+    <div class="footer-right">Built with Astro</div>
+  </footer>
+
+  <!-- ═══════ GSAP + LENIS ANIMATIONS ═══════ -->
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import Lenis from '@studio-freight/lenis';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ═══════════════════════════════════════
+    // 1. SMOOTH SCROLL (Lenis)
+    // ═══════════════════════════════════════
+    const lenis = new Lenis({
+      duration: 1.4,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+
+    // ═══════════════════════════════════════
+    // 2. CUSTOM CURSOR + MAGNETIC EFFECT
+    // ═══════════════════════════════════════
+    const cursor = document.getElementById('cursor');
+    const cursorDot = document.getElementById('cursor-dot');
+    let cx = -100, cy = -100, dx = -100, dy = -100;
+
+    document.addEventListener('mousemove', (e) => {
+      cx = e.clientX;
+      cy = e.clientY;
+      gsap.to(cursorDot, { x: cx, y: cy, duration: 0.08, ease: 'power2.out' });
+    });
+
+    gsap.ticker.add(() => {
+      dx += (cx - dx) * 0.1;
+      dy += (cy - dy) * 0.1;
+      gsap.set(cursor, { x: dx, y: dy });
+    });
+
+    // Hover scaling on interactive elements
+    document.querySelectorAll('a, button, .btn, .chip, .stat, .project-card, .service-card, .timeline-item').forEach((el) => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+    });
+
+    // Magnetic pull effect on buttons
+    document.querySelectorAll('.btn, .chip').forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const bx = rect.left + rect.width / 2;
+        const by = rect.top + rect.height / 2;
+        const pullX = (e.clientX - bx) * 0.2;
+        const pullY = (e.clientY - by) * 0.2;
+        gsap.to(btn, { x: pullX, y: pullY, duration: 0.4, ease: 'power3.out' });
+      });
+      btn.addEventListener('mouseleave', () => {
+        gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' });
+      });
+    });
+
+    // ═══════════════════════════════════════
+    // 3. LOADING SCREEN - cinematic reveal
+    // ═══════════════════════════════════════
+    const loader = document.getElementById('loader');
+    const loaderChars = loader.querySelectorAll('.loader-text span');
+    const lineEl = loader.querySelector('.loader-line');
+
+    const loadTl = gsap.timeline();
+    loadTl
+      .set(loaderChars, { y: '120%', rotateX: -80 })
+      .to(loaderChars, {
+        y: '0%',
+        rotateX: 0,
+        duration: 0.8,
+        stagger: 0.035,
+        ease: 'power4.out',
+      })
+      .fromTo(lineEl,
+        { scaleX: 0 },
+        { scaleX: 1, duration: 0.8, ease: 'power2.inOut', transformOrigin: 'left center' },
+        '-=0.3'
+      )
+      .to(loaderChars, {
+        y: '-120%',
+        rotateX: 80,
+        duration: 0.5,
+        stagger: 0.02,
+        ease: 'power3.in',
+      }, '+=0.4')
+      .to(lineEl, { scaleX: 0, duration: 0.3, transformOrigin: 'right center' }, '-=0.3')
+      .to(loader, {
+        clipPath: 'inset(0 0 100% 0)',
+        duration: 1,
+        ease: 'power4.inOut',
+      })
+      .set(loader, { display: 'none' });
+
+    // ═══════════════════════════════════════
+    // 4. HERO - word-by-word reveal + parallax
+    // ═══════════════════════════════════════
+    const heroTl = gsap.timeline({ delay: 2.5 });
+    heroTl
+      .to('#nav', { opacity: 1, duration: 0.8, ease: 'power2.out' })
+      .fromTo('#hero-label',
+        { opacity: 0, y: 20, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' },
+        '-=0.5'
+      )
+      .to('.word-inner', {
+        y: '0%',
+        duration: 1.2,
+        stagger: 0.06,
+        ease: 'power4.out',
+      }, '-=0.4')
+      .fromTo('#hero-sub',
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+        '-=0.6'
+      )
+      .fromTo('#hero-cta',
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out' },
+        '-=0.5'
+      )
+      .fromTo('#hero-scroll',
+        { opacity: 0 },
+        { opacity: 1, duration: 0.6 },
+        '-=0.2'
+      );
+
+    // Hero elements parallax on scroll — different speeds create depth
+    gsap.to('#hero-label', {
+      yPercent: -50, opacity: 0,
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: '60% top', scrub: 0.8 }
+    });
+    gsap.to('#hero-title', {
+      yPercent: -40, scale: 0.92, opacity: 0,
+      scrollTrigger: { trigger: '#hero', start: 'top top', end: '80% top', scrub: 0.8 }
+    });
+    gsap.to('#hero-sub', {
+      yPercent: -30, opacity: 0,
+      scrollTrigger: { trigger: '#hero', start: '20% top', end: '70% top', scrub: 0.8 }
+    });
+    gsap.to('#hero-cta', {
+      yPercent: -20, opacity: 0,
+      scrollTrigger: { trigger: '#hero', start: '30% top', end: '70% top', scrub: 0.8 }
+    });
+    gsap.to('#hero-scroll', {
+      opacity: 0,
+      scrollTrigger: { trigger: '#hero', start: '10% top', end: '30% top', scrub: true }
+    });
+
+    // ═══════════════════════════════════════
+    // 5. MARQUEE - scroll-speed reactive
+    // ═══════════════════════════════════════
+    const track = document.getElementById('marquee-track');
+    const trackWidth = track.scrollWidth / 2;
+    const marqueeAnim = gsap.to(track, {
+      x: -trackWidth,
+      duration: 25,
+      ease: 'none',
+      repeat: -1,
+    });
+    // Speed up marquee based on scroll velocity
+    ScrollTrigger.create({
+      trigger: '.marquee',
+      start: 'top bottom',
+      end: 'bottom top',
+      onUpdate: (self) => {
+        const speed = 1 + Math.abs(self.getVelocity() / 3000);
+        gsap.to(marqueeAnim, { timeScale: speed, duration: 0.3, overwrite: true });
+      }
+    });
+
+    // ═══════════════════════════════════════
+    // 6. SECTION REVEALS - clip + transform
+    // ═══════════════════════════════════════
+    // Section labels: slide in from left with line
+    document.querySelectorAll('.section-label').forEach((el) => {
+      gsap.fromTo(el,
+        { x: -30, opacity: 0 },
+        {
+          x: 0, opacity: 1, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%' },
+        }
+      );
+    });
+
+    // Section titles: character split reveal
+    document.querySelectorAll('.section-title').forEach((title) => {
+      const text = title.innerHTML;
+      // Wrap each character in a span (preserve HTML tags like <br/>)
+      title.innerHTML = text.replace(/(<[^>]+>)|(.)/g, (match, tag, char) => {
+        if (tag) return tag;
+        if (char === ' ') return ' ';
+        return `<span class="char" style="display:inline-block;opacity:0;transform:translateY(30px)">${char}</span>`;
+      });
+      const chars = title.querySelectorAll('.char');
+      gsap.to(chars, {
+        y: 0, opacity: 1, duration: 0.5, stagger: 0.015, ease: 'power3.out',
+        scrollTrigger: { trigger: title, start: 'top 85%' },
+      });
+    });
+
+    // Section desc: fade + slight rise
+    document.querySelectorAll('.section-desc').forEach((el) => {
+      gsap.fromTo(el,
+        { y: 40, opacity: 0 },
+        {
+          y: 0, opacity: 1, duration: 1, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' },
+        }
+      );
+    });
+
+    // ═══════════════════════════════════════
+    // 7. ABOUT STATS - counter + scale entrance
+    // ═══════════════════════════════════════
+    document.querySelectorAll('.stat').forEach((stat, i) => {
+      gsap.fromTo(stat,
+        { y: 60, opacity: 0, scale: 0.9 },
+        {
+          y: 0, opacity: 1, scale: 1,
+          duration: 0.8,
+          ease: 'back.out(1.4)',
+          delay: i * 0.1,
+          scrollTrigger: { trigger: '.about-stats', start: 'top 82%' },
+        }
+      );
+    });
+
+    // ═══════════════════════════════════════
+    // 8. EXPERIENCE TIMELINE - scroll-driven line + stagger
+    // ═══════════════════════════════════════
+    // Animate the timeline line growing as you scroll
+    const timeline = document.querySelector('.timeline');
+    if (timeline) {
+      gsap.fromTo(timeline,
+        { '--line-progress': '0%' },
+        {
+          '--line-progress': '100%',
+          ease: 'none',
+          scrollTrigger: {
+            trigger: timeline,
+            start: 'top 70%',
+            end: 'bottom 50%',
+            scrub: 0.5,
+          }
+        }
+      );
+
+      document.querySelectorAll('.timeline-item').forEach((item, i) => {
+        // Slide from left with rotation
+        gsap.fromTo(item,
+          { x: -60, opacity: 0, rotateY: -5 },
+          {
+            x: 0, opacity: 1, rotateY: 0,
+            duration: 0.9,
+            ease: 'power3.out',
+            delay: i * 0.12,
+            scrollTrigger: { trigger: item, start: 'top 85%' },
+          }
+        );
+
+        // Dot pulse animation on enter
+        const dot = item.querySelector('.timeline-dot');
+        gsap.fromTo(dot,
+          { scale: 0 },
+          {
+            scale: 1,
+            duration: 0.5,
+            ease: 'elastic.out(1.2, 0.5)',
+            delay: i * 0.12 + 0.3,
+            scrollTrigger: { trigger: item, start: 'top 85%' },
+          }
+        );
+
+        // Chips stagger
+        const chips = item.querySelectorAll('.timeline-chip');
+        gsap.fromTo(chips,
+          { y: 10, opacity: 0, scale: 0.9 },
+          {
+            y: 0, opacity: 1, scale: 1,
+            duration: 0.4,
+            stagger: 0.05,
+            ease: 'power3.out',
+            delay: i * 0.12 + 0.5,
+            scrollTrigger: { trigger: item, start: 'top 85%' },
+          }
+        );
+      });
+    }
+
+    // ═══════════════════════════════════════
+    // 9. PROJECT CARD - dramatic scale entrance + internal parallax
+    // ═══════════════════════════════════════
+    const projCard = document.querySelector('.project-card');
+    if (projCard) {
+      gsap.fromTo(projCard,
+        { y: 100, opacity: 0, scale: 0.95 },
+        {
+          y: 0, opacity: 1, scale: 1,
+          duration: 1.2,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.project-showcase', start: 'top 80%' },
+        }
+      );
+      // Internal parallax: visual moves slower than info
+      gsap.to('.project-visual', {
+        yPercent: -8,
+        scrollTrigger: {
+          trigger: projCard,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 0.6,
+        }
+      });
+      // Tags stagger in
+      gsap.fromTo('.project-tags .tag',
+        { y: 15, opacity: 0, scale: 0.8 },
+        {
+          y: 0, opacity: 1, scale: 1,
+          duration: 0.5,
+          stagger: 0.06,
+          ease: 'back.out(2)',
+          scrollTrigger: { trigger: projCard, start: 'top 75%' },
+        }
+      );
+    }
+
+    // ═══════════════════════════════════════
+    // 10. SERVICE CARDS - 3D flip-in stagger
+    // ═══════════════════════════════════════
+    document.querySelectorAll('.service-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { y: 60, opacity: 0, rotateX: -10, transformPerspective: 800 },
+        {
+          y: 0, opacity: 1, rotateX: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          delay: i * 0.07,
+          scrollTrigger: { trigger: '.services-grid', start: 'top 80%' },
+        }
+      );
+    });
+
+    // ═══════════════════════════════════════
+    // 11. TESTIMONIALS - auto-scrolling continuous loop
+    // ═══════════════════════════════════════
+    const testTrack = document.getElementById('testimonial-track');
+    const testSection = document.querySelector('.testimonials');
+    if (testTrack && testSection) {
+      const testWidth = testTrack.scrollWidth / 2;
+      gsap.to(testTrack, {
+        x: -testWidth,
+        duration: 25,
+        ease: 'none',
+        repeat: -1,
+      });
+    }
+
+    // ═══════════════════════════════════════
+    // 12. CONTACT - chips bounce in
+    // ═══════════════════════════════════════
+    document.querySelectorAll('.chip').forEach((chip, i) => {
+      gsap.fromTo(chip,
+        { y: 30, opacity: 0, scale: 0.85 },
+        {
+          y: 0, opacity: 1, scale: 1,
+          duration: 0.6,
+          ease: 'back.out(1.8)',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: '.contact-chips', start: 'top 85%' },
+        }
+      );
+    });
+
+    // ═══════════════════════════════════════
+    // 13. SECTION PARALLAX - different scroll speeds per section
+    // ═══════════════════════════════════════
+    document.querySelectorAll('.section').forEach((section) => {
+      const inner = section.querySelector('.section-inner');
+      if (!inner) return;
+      gsap.fromTo(inner,
+        { yPercent: 5 },
+        {
+          yPercent: -5,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.4,
+          }
+        }
+      );
+    });
+  </script>
+</body>
+</html>
