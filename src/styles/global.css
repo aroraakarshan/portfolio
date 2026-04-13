@@ -142,6 +142,19 @@ button { cursor: none; }
   letter-spacing: 0.02em;
 }
 .nav-links a:hover { color: #fff; }
+.nav-cta {
+  background: #fff;
+  color: #060a13 !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 99px;
+  font-weight: 600 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.nav-cta:hover {
+  box-shadow: 0 4px 20px rgba(255,255,255,0.15);
+  transform: scale(1.05);
+  color: #060a13 !important;
+}
 
 /* ───────── HERO ───────── */
 .hero {
@@ -378,9 +391,26 @@ button { cursor: none; }
 }
 
 /* ───────── PROJECT ───────── */
+.project-suite-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+.project-suite-link:hover {
+  gap: 0.75rem;
+  color: #fff;
+}
+
 .project-showcase {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
   margin-top: 2.5rem;
-  max-width: 560px;
 }
 .project-card {
   display: flex;
@@ -540,36 +570,27 @@ button { cursor: none; }
 }
 
 /* ───────── CONTENT GRID ───────── */
-.content-grid {
+.linkedin-embeds {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
   margin-top: 2.5rem;
 }
-.content-card {
-  padding: 2rem;
-  background: var(--bg-card);
+.linkedin-embed-card {
+  border-radius: 14px;
+  overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 18px;
+  background: #fff;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
 }
-.content-card:hover {
+.linkedin-embed-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(148, 163, 184, 0.15);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
-.content-icon { font-size: 1.6rem; }
-.content-title {
-  font-size: 1rem;
-  font-weight: 700;
-}
-.content-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.6;
+.linkedin-embed-card iframe {
+  display: block;
+  width: 100%;
+  border: none;
 }
 
 /* ───────── EXPERIENCE TIMELINE ───────── */
@@ -772,7 +793,7 @@ button { cursor: none; }
   .nav-links { display: none; }
   .about-layout, .project-card { grid-template-columns: 1fr; gap: 2rem; }
   .services-grid { grid-template-columns: 1fr; }
-  .content-grid { grid-template-columns: 1fr; }
+  .linkedin-embeds { grid-template-columns: 1fr; }
   .project-card { padding: 2rem; }
   .section { padding: 6rem var(--gutter); }
   body { cursor: auto; }
