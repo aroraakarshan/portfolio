@@ -1,0 +1,168 @@
+{
+  "name": "Akarshan Arora",
+  "title": "VLSI Engineer & Developer",
+  "tagline": "VLSI Engineer · Interactive Education",
+  "heroHeadline": {
+    "lines": [
+      { "words": ["Building", "Tools"], "gradient": true },
+      { "words": ["That", "Make", "Complex"], "gradient": false },
+      { "words": ["Concepts", "Click"], "gradient": true }
+    ]
+  },
+  "heroDescription": "I create interactive simulations and visualizations that turn abstract VLSI and software concepts into hands-on learning experiences.",
+  "heroCTAs": [
+    { "label": "View Projects →", "href": "#projects", "style": "primary" },
+    { "label": "🎯 Book a Session", "href": "https://topmate.io/akarshanarora", "style": "primary", "external": true },
+    { "label": "GitHub", "href": "https://github.com/aroraakarshan", "style": "ghost", "external": true }
+  ],
+  "marqueeItems": [
+    "Power Delivery Networks",
+    "EMIR Analysis",
+    "AI-Assisted Debug",
+    "Interactive Simulation",
+    "LLM Agents for CAD",
+    "Physical Design"
+  ],
+  "about": {
+    "headline": "10+ years in VLSI\npower integrity",
+    "description": "Senior EMIR CAD Engineer at <strong>Microsoft</strong>, previously at <strong>Qualcomm</strong> and <strong>NXP</strong>. I build automation and <strong>AI-assisted debug workflows</strong> that cut analysis turnaround from days to hours — so engineers spend time fixing problems, not finding them.",
+    "skills": [
+      { "label": "VLSI", "detail": "Power Delivery · EMIR · IR Drop · EM Analysis", "color": "blue" },
+      { "label": "Python", "detail": "Automation · Debug Tools · Data Visualization", "color": "green" },
+      { "label": "CAD", "detail": "Redhawk · SeaScape · Voltus · Quantus · StarRC", "color": "purple" },
+      { "label": "AI", "detail": "Agent-Assisted Debug · LLM Workflows · MCP", "color": "amber" }
+    ]
+  },
+  "experience": [
+    {
+      "date": "Jul 2024 — Present",
+      "role": "Senior EMIR CAD Engineer",
+      "company": "Microsoft · Bengaluru",
+      "highlights": [
+        { "label": "Maia 200", "featured": true },
+        { "label": "EMIR" },
+        { "label": "PDN" },
+        { "label": "CAD Automation" },
+        { "label": "AI-Assisted Debug", "featured": true }
+      ]
+    },
+    {
+      "date": "Dec 2021 — Jul 2024 · 2 yrs 8 mos",
+      "role": "Senior Engineer, Lead",
+      "company": "Qualcomm · Bengaluru",
+      "highlights": [
+        { "label": "Snapdragon 8 Gen 2", "featured": true },
+        { "label": "Snapdragon 8 Gen 1", "featured": true },
+        { "label": "Snapdragon 888", "featured": true },
+        { "label": "50% runtime reduction" },
+        { "label": "Python debug platform" },
+        { "label": "Quantus enablement" },
+        { "label": "1B data point comparison" },
+        { "label": "TSMC N3E / N4" }
+      ]
+    },
+    {
+      "date": "Jun 2019 — Dec 2021 · 2 yrs 7 mos",
+      "role": "Senior Design Engineer",
+      "company": "Qualcomm · Bengaluru",
+      "highlights": [
+        { "label": "Snapdragon 865", "featured": true },
+        { "label": "Snapdragon 855", "featured": true },
+        { "label": "First elastic compute PDN tool" },
+        { "label": "Redhawk vs Redhawk-SC" },
+        { "label": "23M net segment comparison" },
+        { "label": "PDN CAD flow" },
+        { "label": "SEC 4LPX / 3LPE" }
+      ]
+    },
+    {
+      "date": "Apr 2018 — May 2019 · 1 yr 2 mos",
+      "role": "Senior Design Engineer",
+      "company": "NXP Semiconductors · Noida",
+      "highlights": [
+        { "label": "PTPX enablement" },
+        { "label": "Unified view generation" },
+        { "label": "Virtuoso SKILL GUI" }
+      ]
+    },
+    {
+      "date": "Sep 2015 — Mar 2018 · 2 yrs 7 mos",
+      "role": "Design Engineer",
+      "company": "NXP Semiconductors · Noida",
+      "highlights": [
+        { "label": "PG routing automation" },
+        { "label": "LYNX flow" },
+        { "label": "Redhawk enablement" },
+        { "label": "Voltus views" },
+        { "label": "Static IR drop" },
+        { "label": "ICC2" }
+      ]
+    },
+    {
+      "date": "2011 — 2015",
+      "role": "B.Tech — Electronics & Communication",
+      "company": "IIIT Allahabad · CGPA 8.68",
+      "highlights": [
+        { "label": "ECE" }
+      ]
+    }
+  ],
+  "projects": {
+    "suiteLabel": "PDN Toy Tools",
+    "suiteLink": "https://aroraakarshan.github.io/pdn-toy-tools/",
+    "description": "Things I build on weekends to make VLSI concepts more accessible — interactive, visual, and free for everyone.",
+    "items": [
+      {
+        "name": "PDN SPR Visualizer",
+        "description": "Analyze shortest path resistance in an interactive 3D power grid. Visualize optimal current paths through multi-layer metal stacks in real-time.",
+        "href": "https://aroraakarshan.github.io/pdn-toy-tools/spr-visualizer",
+        "browserUrl": "pdn-toy-tools/spr-visualizer",
+        "tags": [
+          { "label": "VLSI", "color": "blue" },
+          { "label": "3D Interactive", "color": "green" }
+        ]
+      },
+      {
+        "name": "IR Drop Visualizer",
+        "description": "Explore voltage distribution in an interactive 3D landscape. Watch columns shrink and turn red as current flows, revealing dangerous IR drop zones.",
+        "href": "https://aroraakarshan.github.io/pdn-toy-tools/ir-drop-visualizer",
+        "browserUrl": "pdn-toy-tools/ir-drop-visualizer",
+        "tags": [
+          { "label": "VLSI", "color": "blue" },
+          { "label": "3D Interactive", "color": "green" }
+        ]
+      }
+    ]
+  },
+  "content": {
+    "description": "I share bite-sized technical content on VLSI EMIR concepts, Python automation tips, and CAD workflows on LinkedIn.",
+    "linkedinUrl": "https://www.linkedin.com/in/akarshanarora/",
+    "embeds": [
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7440036322578407424?collapsed=1",
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7349516648816496642?collapsed=1",
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7315049307340959744?collapsed=1",
+      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7303503179936108545?collapsed=1"
+    ]
+  },
+  "services": {
+    "stats": "4.7/5 rating · 40+ sessions · 30 testimonials",
+    "bookingLink": "https://topmate.io/akarshanarora",
+    "items": [
+      { "icon": "🐍", "title": "Python for VLSI", "description": "For professionals starting their automation journey — interview prep, CLI tools, common pitfalls, VLSI plots." },
+      { "icon": "⚡", "title": "VLSI PDN Guidance", "description": "For people seeking job opportunities in VLSI CAD/PDN — power delivery, EMIR analysis, and tool flows." },
+      { "icon": "🔬", "title": "Redhawk SeaScape", "description": "Guidance on how to use the SeaScape platform for VLSI power integrity analysis." },
+      { "icon": "🧭", "title": "Career Guidance", "description": "Navigating career paths in VLSI, CAD development, and the semiconductor industry." }
+    ]
+  },
+  "testimonials": [
+    "Superb easy explanation. Good insight provided overall about EMIR learning.",
+    "First session was very helpful, with introduction of Python basics. Looking for more sessions on dashboard development.",
+    "Very nice session and your way of explanation is pretty good. Looking forward to listening at you again.",
+    "Insightful session — he gave me pointers where I should focus, and materials to use. Overall very helpful.",
+    "Really helpful as a kickstart to learning Python for VLSI. He also guided to additional resources."
+  ],
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/akarshanarora/",
+    "github": "https://github.com/aroraakarshan"
+  }
+}
