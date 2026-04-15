@@ -1,5 +1,6 @@
 ---
 import ParticleCanvas from '../components/ParticleCanvas';
+import WaveDivider from '../components/WaveDivider.astro';
 import '../styles/global.css';
 import data from '../data/portfolio.json';
 ---
@@ -27,6 +28,9 @@ import data from '../data/portfolio.json';
     <div class="loader-line"></div>
   </div>
 
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
   <!-- Nav -->
   <nav class="nav" id="nav">
     <a href="/" class="nav-brand">
@@ -34,12 +38,12 @@ import data from '../data/portfolio.json';
       <span>{data.name}</span>
     </a>
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#services">Mentorship</a>
-      <a href="#contact">Contact</a>
-      <a href={data.social.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#about" data-scramble>About</a>
+      <a href="#experience" data-scramble>Experience</a>
+      <a href="#projects" data-scramble>Projects</a>
+      <a href="#services" data-scramble>Mentorship</a>
+      <a href="#contact" data-scramble>Contact</a>
+      <a href={data.social.linkedin} target="_blank" rel="noopener" data-scramble>LinkedIn</a>
       <a href={data.services.bookingLink} target="_blank" rel="noopener" class="nav-cta">🎯 Book a Session</a>
     </div>
   </nav>
@@ -74,6 +78,8 @@ import data from '../data/portfolio.json';
     </div>
   </section>
 
+  <WaveDivider color="#3b82f6" />
+
   <!-- ═══════ MARQUEE ═══════ -->
   <div class="marquee">
     <div class="marquee-track" id="marquee-track">
@@ -106,6 +112,8 @@ import data from '../data/portfolio.json';
       </div>
     </div>
   </section>
+
+  <WaveDivider color="#a855f7" flip />
 
   <!-- ═══════ EXPERIENCE ═══════ -->
   <section class="section" id="experience">
@@ -157,8 +165,72 @@ import data from '../data/portfolio.json';
                 <div class="browser-url">{project.browserUrl}</div>
               </div>
               <div class="browser-content">
-                <div style="height: 220px; background: var(--bg-elevated); display: flex; align-items: center; justify-content: center;">
-                  <span style="font-size: 3rem; opacity: 0.3;">⚡</span>
+                <div class="project-preview" data-clip-reveal>
+                  {project.name === 'PDN SPR Visualizer' ? (
+                    <svg class="project-svg" viewBox="0 0 504 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <!-- 3D grid representing power delivery network -->
+                      <defs>
+                        <linearGradient id="grid-grad-spr" x1="0" y1="0" x2="504" y2="220">
+                          <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
+                          <stop offset="100%" stop-color="#22c55e" stop-opacity="0.4" />
+                        </linearGradient>
+                      </defs>
+                      <!-- Horizontal grid lines -->
+                      <line x1="40" y1="60" x2="464" y2="60" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <line x1="40" y1="100" x2="464" y2="100" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <line x1="40" y1="140" x2="464" y2="140" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <line x1="40" y1="180" x2="464" y2="180" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <!-- Vertical grid lines -->
+                      <line x1="100" y1="40" x2="100" y2="200" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <line x1="190" y1="40" x2="190" y2="200" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <line x1="280" y1="40" x2="280" y2="200" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <line x1="370" y1="40" x2="370" y2="200" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
+                      <!-- Shortest path highlight -->
+                      <path d="M100,180 L100,140 L190,140 L190,100 L280,100 L370,100 L370,60" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" class="spr-path" fill="none" />
+                      <!-- Nodes -->
+                      <circle cx="100" cy="180" r="4" fill="#3b82f6" class="spr-node" />
+                      <circle cx="100" cy="140" r="3" fill="#06b6d4" class="spr-node" />
+                      <circle cx="190" cy="140" r="3" fill="#06b6d4" class="spr-node" />
+                      <circle cx="190" cy="100" r="3" fill="#06b6d4" class="spr-node" />
+                      <circle cx="280" cy="100" r="3" fill="#06b6d4" class="spr-node" />
+                      <circle cx="370" cy="100" r="3" fill="#06b6d4" class="spr-node" />
+                      <circle cx="370" cy="60" r="4" fill="#22c55e" class="spr-node" />
+                      <!-- Labels -->
+                      <text x="90" y="205" fill="#3b82f6" font-size="10" font-family="monospace" opacity="0.7">SRC</text>
+                      <text x="360" y="50" fill="#22c55e" font-size="10" font-family="monospace" opacity="0.7">DST</text>
+                    </svg>
+                  ) : (
+                    <svg class="project-svg" viewBox="0 0 504 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <!-- IR Drop voltage waveform visualization -->
+                      <!-- VDD rail at top -->
+                      <line x1="40" y1="40" x2="470" y2="40" stroke="#22c55e" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.4" />
+                      <text x="12" y="44" fill="#22c55e" font-size="9" font-family="monospace" opacity="0.7">VDD</text>
+                      <!-- VDD drooping waveform -->
+                      <path class="vdd-wave" d="M40,40 C70,40 80,42 100,50 C120,58 130,44 160,48 C190,52 200,65 230,70 C260,75 270,55 300,52 C330,49 350,60 380,56 C410,52 430,44 470,42" stroke="#22c55e" stroke-width="2" stroke-linecap="round" fill="none" />
+                      <!-- IR drop shaded region -->
+                      <path d="M40,40 C70,40 80,42 100,50 C120,58 130,44 160,48 C190,52 200,65 230,70 C260,75 270,55 300,52 C330,49 350,60 380,56 C410,52 430,44 470,42 L470,40 L40,40 Z" fill="#22c55e" opacity="0.06" />
+
+                      <!-- VSS rail at bottom -->
+                      <line x1="40" y1="180" x2="470" y2="180" stroke="#3b82f6" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.4" />
+                      <text x="12" y="184" fill="#3b82f6" font-size="9" font-family="monospace" opacity="0.7">VSS</text>
+                      <!-- VSS bounce waveform -->
+                      <path class="vss-wave" d="M40,180 C60,180 80,178 100,172 C120,166 140,175 160,170 C180,165 200,155 230,150 C260,145 280,162 300,166 C320,170 350,160 380,164 C410,168 440,176 470,178" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" fill="none" />
+                      <!-- Ground bounce shaded region -->
+                      <path d="M40,180 C60,180 80,178 100,172 C120,166 140,175 160,170 C180,165 200,155 230,150 C260,145 280,162 300,166 C320,170 350,160 380,164 C410,168 440,176 470,178 L470,180 L40,180 Z" fill="#3b82f6" opacity="0.06" />
+
+                      <!-- Worst IR drop annotation -->
+                      <line x1="230" y1="70" x2="230" y2="40" stroke="#ef4444" stroke-width="1" stroke-dasharray="3 2" opacity="0.6" />
+                      <text x="236" y="58" fill="#ef4444" font-size="8" font-family="monospace" opacity="0.7">IR drop</text>
+
+                      <!-- Worst ground bounce annotation -->
+                      <line x1="230" y1="150" x2="230" y2="180" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 2" opacity="0.6" />
+                      <text x="236" y="168" fill="#f59e0b" font-size="8" font-family="monospace" opacity="0.7">GND bounce</text>
+
+                      <!-- Time axis -->
+                      <line x1="40" y1="200" x2="470" y2="200" stroke="rgba(148,163,184,0.3)" stroke-width="0.5" />
+                      <text x="240" y="214" fill="rgba(148,163,184,0.4)" font-size="8" font-family="monospace" text-anchor="middle">time →</text>
+                    </svg>
+                  )}
                 </div>
               </div>
             </div>
@@ -177,6 +249,8 @@ import data from '../data/portfolio.json';
       </div>
     </div>
   </section>
+
+  <WaveDivider color="#06b6d4" />
 
   <!-- ═══════ CONTENT ═══════ -->
   <section class="section" id="content">
@@ -383,29 +457,46 @@ import data from '../data/portfolio.json';
       );
 
     // Hero elements parallax on scroll — different speeds create depth
-    gsap.to('#hero-label', {
-      yPercent: -50, opacity: 0,
-      scrollTrigger: { trigger: '#hero', start: 'top top', end: '60% top', scrub: 0.8 }
-    });
-    gsap.to('#hero-title', {
-      yPercent: -40, scale: 0.92, opacity: 0,
-      scrollTrigger: { trigger: '#hero', start: 'top top', end: '80% top', scrub: 0.8 }
-    });
-    gsap.to('#hero-sub', {
-      yPercent: -30, opacity: 0,
-      scrollTrigger: { trigger: '#hero', start: '20% top', end: '70% top', scrub: 0.8 }
-    });
+    gsap.fromTo('#hero-label',
+      { yPercent: 0, opacity: 1 },
+      {
+        yPercent: -50, opacity: 0,
+        immediateRender: false,
+        scrollTrigger: { trigger: '#hero', start: 'top top', end: '60% top', scrub: 0.8 }
+      }
+    );
+    gsap.fromTo('#hero-title',
+      { yPercent: 0, scale: 1, opacity: 1 },
+      {
+        yPercent: -40, scale: 0.92, opacity: 0,
+        immediateRender: false,
+        scrollTrigger: { trigger: '#hero', start: 'top top', end: '80% top', scrub: 0.8 }
+      }
+    );
+    gsap.fromTo('#hero-sub',
+      { yPercent: 0, opacity: 1 },
+      {
+        yPercent: -30, opacity: 0,
+        immediateRender: false,
+        scrollTrigger: { trigger: '#hero', start: '20% top', end: '70% top', scrub: 0.8 }
+      }
+    );
     gsap.fromTo('#hero-cta',
       { yPercent: 0, opacity: 1 },
       {
         yPercent: -20, opacity: 0,
+        immediateRender: false,
         scrollTrigger: { trigger: '#hero', start: '30% top', end: '70% top', scrub: 0.8 }
       }
     );
-    gsap.to('#hero-scroll', {
-      opacity: 0,
-      scrollTrigger: { trigger: '#hero', start: '10% top', end: '30% top', scrub: true }
-    });
+    gsap.fromTo('#hero-scroll',
+      { opacity: 1 },
+      {
+        opacity: 0,
+        immediateRender: false,
+        scrollTrigger: { trigger: '#hero', start: '10% top', end: '30% top', scrub: true }
+      }
+    );
 
     // ═══════════════════════════════════════
     // 5. MARQUEE - scroll-speed reactive
@@ -549,7 +640,7 @@ import data from '../data/portfolio.json';
     }
 
     // ═══════════════════════════════════════
-    // 9. PROJECT CARDS - dramatic scale entrance + internal parallax
+    // 10. PROJECT CARDS - dramatic scale entrance + internal parallax
     // ═══════════════════════════════════════
     const projCards = document.querySelectorAll('.project-card');
     projCards.forEach((projCard, i) => {
@@ -655,6 +746,99 @@ import data from '../data/portfolio.json';
           }
         }
       );
+    });
+
+    // ═══════════════════════════════════════
+    // 14. SCROLL PROGRESS BAR
+    // ═══════════════════════════════════════
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) {
+      gsap.to(progressBar, {
+        width: '100%',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: 0.3,
+        },
+      });
+    }
+
+    // ═══════════════════════════════════════
+    // 15. TEXT SCRAMBLE on nav hover
+    // ═══════════════════════════════════════
+    const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
+    document.querySelectorAll('[data-scramble]').forEach((el) => {
+      const original = el.textContent || '';
+      let frameId: number;
+      el.addEventListener('mouseenter', () => {
+        let iteration = 0;
+        cancelAnimationFrame(frameId);
+        const scramble = () => {
+          el.textContent = original
+            .split('')
+            .map((char, i) => {
+              if (i < iteration) return original[i];
+              return scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+            })
+            .join('');
+          if (iteration < original.length) {
+            iteration += 1 / 2;
+            frameId = requestAnimationFrame(scramble);
+          }
+        };
+        scramble();
+      });
+      el.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(frameId);
+        el.textContent = original;
+      });
+    });
+
+    // ═══════════════════════════════════════
+    // 16. PROJECT CARD - SVG animations
+    // ═══════════════════════════════════════
+    // SPR Visualizer: draw the shortest path line + pop in nodes
+    const sprPath = document.querySelector('.spr-path') as SVGPathElement;
+    if (sprPath) {
+      const len = sprPath.getTotalLength();
+      gsap.set(sprPath, { strokeDasharray: len, strokeDashoffset: len });
+      gsap.to(sprPath, {
+        strokeDashoffset: 0,
+        duration: 1.8,
+        ease: 'power2.inOut',
+        scrollTrigger: { trigger: sprPath, start: 'top 85%' },
+      });
+    }
+    const sprNodes = document.querySelectorAll('.spr-node');
+    if (sprNodes.length) {
+      gsap.fromTo(sprNodes,
+        { opacity: 0, scale: 0, transformOrigin: 'center' },
+        {
+          opacity: 1, scale: 1,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'back.out(2)',
+          scrollTrigger: { trigger: sprNodes[0], start: 'top 85%' },
+          delay: 0.6,
+        }
+      );
+    }
+
+    // IR Drop Visualizer: draw VDD and VSS waveforms
+    const vddWave = document.querySelector('.vdd-wave') as SVGPathElement;
+    const vssWave = document.querySelector('.vss-wave') as SVGPathElement;
+    [vddWave, vssWave].forEach((wave) => {
+      if (!wave) return;
+      const len = wave.getTotalLength();
+      gsap.set(wave, { strokeDasharray: len, strokeDashoffset: len });
+      gsap.to(wave, {
+        strokeDashoffset: 0,
+        duration: 2,
+        ease: 'power2.inOut',
+        scrollTrigger: { trigger: wave, start: 'top 85%' },
+      });
     });
   </script>
 </body>

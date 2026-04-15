@@ -1,0 +1,92 @@
+---
+interface Props {
+  id?: string;
+  flip?: boolean;
+  color?: string;
+}
+
+const { id = 'wave', flip = false, color = 'var(--accent-blue, #3b82f6)' } = Astro.props;
+---
+
+<div class={`wave-divider ${flip ? 'wave-divider--flip' : ''}`} aria-hidden="true">
+  <svg
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="wave-svg"
+  >
+    <!-- Layer 1: slow, large wave -->
+    <path
+      class="wave-path wave-path--1"
+      d="M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120 Z"
+      fill={color}
+      opacity="0.08"
+    />
+    <!-- Layer 2: medium wave -->
+    <path
+      class="wave-path wave-path--2"
+      d="M0,70 C200,40 400,90 720,50 C1040,10 1240,80 1440,70 L1440,120 L0,120 Z"
+      fill={color}
+      opacity="0.05"
+    />
+    <!-- Layer 3: fast, subtle wave -->
+    <path
+      class="wave-path wave-path--3"
+      d="M0,80 C360,50 600,100 900,65 C1100,40 1300,85 1440,80 L1440,120 L0,120 Z"
+      fill={color}
+      opacity="0.03"
+    />
+  </svg>
+</div>
+
+<style>
+  .wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    position: relative;
+    height: 80px;
+    pointer-events: none;
+  }
+
+  .wave-divider--flip {
+    transform: scaleY(-1);
+  }
+
+  .wave-svg {
+    width: 200%;
+    height: 100%;
+    min-height: 60px;
+  }
+
+  .wave-path--1 {
+    animation: waveSlide1 12s linear infinite;
+  }
+  .wave-path--2 {
+    animation: waveSlide2 8s linear infinite;
+  }
+  .wave-path--3 {
+    animation: waveSlide3 6s linear infinite;
+  }
+
+  @keyframes waveSlide1 {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes waveSlide2 {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes waveSlide3 {
+    0% { transform: translateX(-25%); }
+    100% { transform: translateX(-75%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .wave-path--1,
+    .wave-path--2,
+    .wave-path--3 {
+      animation: none;
+    }
+  }
+</style>
