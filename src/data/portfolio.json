@@ -109,13 +109,13 @@
   ],
   "projects": {
     "suiteLabel": "PDN Toy Tools",
-    "suiteLink": "https://aroraakarshan.github.io/pdn-toy-tools/",
+    "suiteLink": "https://pdn-toy-tools.akarshanarora.com/",
     "description": "Things I build on weekends to make VLSI concepts more accessible — interactive, visual, and free for everyone.",
     "items": [
       {
         "name": "PDN SPR Visualizer",
         "description": "Analyze shortest path resistance in an interactive 3D power grid. Visualize optimal current paths through multi-layer metal stacks in real-time.",
-        "href": "https://aroraakarshan.github.io/pdn-toy-tools/spr-visualizer",
+        "href": "https://pdn-toy-tools.akarshanarora.com/spr-visualizer",
         "browserUrl": "pdn-toy-tools/spr-visualizer",
         "tags": [
           { "label": "VLSI", "color": "blue" },
@@ -125,7 +125,7 @@
       {
         "name": "IR Drop Visualizer",
         "description": "Explore voltage distribution in an interactive 3D landscape. Watch columns shrink and turn red as current flows, revealing dangerous IR drop zones.",
-        "href": "https://aroraakarshan.github.io/pdn-toy-tools/ir-drop-visualizer",
+        "href": "https://pdn-toy-tools.akarshanarora.com/ir-drop-visualizer",
         "browserUrl": "pdn-toy-tools/ir-drop-visualizer",
         "tags": [
           { "label": "VLSI", "color": "blue" },
