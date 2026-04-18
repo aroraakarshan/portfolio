@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#060a13"/>
+      <stop offset="1" stop-color="#0c1220"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3b82f6"/>
+      <stop offset="0.5" stop-color="#06b6d4"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <pattern id="grid" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(148,163,184,0.06)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Decorative circuit lines -->
+  <g stroke="rgba(59,130,246,0.35)" stroke-width="2" fill="none">
+    <path d="M 0 540 L 180 540 L 180 480 L 320 480"/>
+    <path d="M 900 120 L 1040 120 L 1040 180 L 1200 180"/>
+    <circle cx="180" cy="540" r="6" fill="#3b82f6"/>
+    <circle cx="320" cy="480" r="6" fill="#06b6d4"/>
+    <circle cx="1040" cy="120" r="6" fill="#22c55e"/>
+  </g>
+
+  <!-- Tagline -->
+  <text x="80" y="200"
+        font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-size="22"
+        font-weight="500"
+        letter-spacing="4"
+        fill="#06b6d4">
+    VLSI ENGINEER · INTERACTIVE EDUCATION
+  </text>
+
+  <!-- Name -->
+  <text x="80" y="320"
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="96"
+        font-weight="800"
+        fill="#f8fafc">
+    Akarshan Arora
+  </text>
+
+  <!-- Headline -->
+  <text x="80" y="430"
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="48"
+        font-weight="700"
+        fill="url(#accent)">
+    Building tools that make
+  </text>
+  <text x="80" y="495"
+        font-family="'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="48"
+        font-weight="700"
+        fill="#f8fafc">
+    complex concepts click.
+  </text>
+
+  <!-- URL chip -->
+  <rect x="80" y="540" width="280" height="44" rx="22" fill="rgba(6,182,212,0.12)" stroke="#06b6d4" stroke-width="1.5"/>
+  <text x="102" y="569"
+        font-family="'JetBrains Mono', ui-monospace, monospace"
+        font-size="18"
+        font-weight="500"
+        fill="#06b6d4">
+    akarshanarora.com
+  </text>
+</svg>

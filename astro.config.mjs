@@ -1,9 +1,17 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+
+// Update this to the canonical deployed URL before shipping.
+const SITE = 'https://akarshanarora.com';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react()]
+  site: SITE,
+  integrations: [
+    tailwind({ applyBaseStyles: false }),
+    sitemap(),
+  ],
 });
