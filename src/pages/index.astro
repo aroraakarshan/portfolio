@@ -57,6 +57,21 @@ const jsonLd = {
   <!-- Skip link for keyboard users -->
   <a href="#hero" class="skip-link">Skip to main content</a>
 
+  <!-- Film grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Side nav dots -->
+  <div class="side-nav" id="side-nav" aria-hidden="true">
+    <a href="#hero" class="side-nav-dot active" data-section="hero"><span>Hero</span></a>
+    <a href="#about" class="side-nav-dot" data-section="about"><span>About</span></a>
+    <a href="#experience" class="side-nav-dot" data-section="experience"><span>Experience</span></a>
+    <a href="#impact" class="side-nav-dot" data-section="impact"><span>Impact</span></a>
+    <a href="#projects" class="side-nav-dot" data-section="projects"><span>Projects</span></a>
+    <a href="#content" class="side-nav-dot" data-section="content"><span>Content</span></a>
+    <a href="#services" class="side-nav-dot" data-section="services"><span>Mentorship</span></a>
+    <a href="#contact" class="side-nav-dot" data-section="contact"><span>Contact</span></a>
+  </div>
+
   <!-- Custom Cursor (hidden via CSS on touch + reduced motion) -->
   <div class="cursor" id="cursor" aria-hidden="true"></div>
   <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
@@ -649,17 +664,44 @@ const jsonLd = {
     });
 
     document.querySelectorAll('.section-title, .contact-headline').forEach((title) => {
+      // Add mask element for wipe reveal
+      const mask = document.createElement('div');
+      mask.classList.add('title-mask');
+      title.appendChild(mask);
+
+      // Wrap chars for stagger animation
       const text = title.innerHTML;
-      title.innerHTML = text.replace(/(<[^>]+>)|(.)/g, (match, tag, char) => {
+      // Remove the mask from innerHTML processing by saving and re-adding
+      title.removeChild(mask);
+      const originalHtml = title.innerHTML;
+      title.innerHTML = originalHtml.replace(/(<[^>]+>)|(.)/g, (match, tag, char) => {
         if (tag) return tag;
         if (char === ' ') return ' ';
         return `<span class="char" style="display:inline-block;opacity:0;transform:translateY(30px)">${char}</span>`;
       });
+      title.appendChild(mask);
+
       const chars = title.querySelectorAll('.char');
-      gsap.to(chars, {
-        y: 0, opacity: 1, duration: 0.5, stagger: 0.015, ease: 'power3.out',
+      const tl = gsap.timeline({
         scrollTrigger: { trigger: title, start: 'top 85%' },
       });
+
+      // Mask wipes across, then exits
+      tl.to(mask, {
+        x: '0%',
+        duration: 0.5,
+        ease: 'power3.inOut',
+      })
+      .to(chars, {
+        y: 0, opacity: 1,
+        duration: 0.01,
+        stagger: 0.005,
+      })
+      .to(mask, {
+        x: '101%',
+        duration: 0.5,
+        ease: 'power3.inOut',
+      }, '-=0.1');
     });
 
     document.querySelectorAll('.section-desc').forEach((el) => {
@@ -1054,6 +1096,42 @@ const jsonLd = {
       // Close on ESC
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && navLinks.classList.contains('nav-links--open')) toggleNav();
+      });
+    }
+
+    // ═══════════════════════════════════════
+    // 21. SIDE NAV DOTS — scroll-driven active state
+    // ═══════════════════════════════════════
+    const sideNav = document.getElementById('side-nav');
+    const sideNavDots = document.querySelectorAll('.side-nav-dot');
+
+    // Show side nav after hero
+    if (sideNav) {
+      ScrollTrigger.create({
+        trigger: '#hero',
+        start: 'bottom 80%',
+        onEnter: () => sideNav.classList.add('visible'),
+        onLeaveBack: () => sideNav.classList.remove('visible'),
+      });
+    }
+
+    // Track active section
+    const sections = ['hero', 'about', 'experience', 'impact', 'projects', 'content', 'services', 'contact'];
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 50%',
+        end: 'bottom 50%',
+        onEnter: () => setActiveDot(id),
+        onEnterBack: () => setActiveDot(id),
+      });
+    });
+
+    function setActiveDot(id: string) {
+      sideNavDots.forEach((dot) => {
+        dot.classList.toggle('active', dot.getAttribute('data-section') === id);
       });
     }
 
