@@ -82,7 +82,7 @@ const jsonLd = {
       <div class="nav-dot"></div>
       <span>{data.name}</span>
     </a>
-    <div class="nav-links">
+    <div class="nav-links" id="nav-links">
       <a href="#about" data-scramble>About</a>
       <a href="#experience" data-scramble>Experience</a>
       <a href="#projects" data-scramble>Projects</a>
@@ -91,6 +91,9 @@ const jsonLd = {
       <a href={data.social.linkedin} target="_blank" rel="noopener" data-scramble>LinkedIn</a>
       <a href={data.services.bookingLink} target="_blank" rel="noopener" class="nav-cta">🎯 Book a Session</a>
     </div>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- ═══════ HERO ═══════ -->
@@ -184,8 +187,34 @@ const jsonLd = {
     </div>
   </section>
 
+  <!-- ═══════ IMPACT NUMBERS ═══════ -->
+  <section class="section section--impact" id="impact">
+    <div class="section-inner">
+      <p class="section-label" data-reveal>Impact</p>
+      <h2 class="section-title" data-reveal>Numbers That Speak</h2>
+      <div class="impact-grid">
+        <div class="impact-card" data-reveal>
+          <span class="impact-number" data-count="10">0</span><span class="impact-suffix">+</span>
+          <span class="impact-label">Years in VLSI Power Integrity</span>
+        </div>
+        <div class="impact-card" data-reveal>
+          <span class="impact-number" data-count="50">0</span><span class="impact-suffix">%</span>
+          <span class="impact-label">Runtime Reduction Achieved</span>
+        </div>
+        <div class="impact-card" data-reveal>
+          <span class="impact-number" data-count="1" data-decimals="0">0</span><span class="impact-suffix">B+</span>
+          <span class="impact-label">Data Points Compared</span>
+        </div>
+        <div class="impact-card" data-reveal>
+          <span class="impact-number" data-count="23">0</span><span class="impact-suffix">M</span>
+          <span class="impact-label">Net Segments Analyzed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ═══════ PROJECTS ═══════ -->
-  <section class="section" id="projects">
+  <section class="section section--hscroll" id="projects">
     <div class="section-inner">
       <p class="section-label" data-reveal>Open Source</p>
       <h2 class="section-title" data-reveal>Side Projects and Learning Tools</h2>
@@ -197,7 +226,7 @@ const jsonLd = {
         {data.projects.suiteLabel} →
       </a>
 
-      <div class="project-showcase" data-reveal>
+      <div class="project-showcase" id="project-showcase" data-reveal>
         {data.projects.items.map((project: any) => (
           <a href={project.href} target="_blank" rel="noopener" class="project-card">
             <div class="project-visual">
@@ -304,16 +333,22 @@ const jsonLd = {
       <h2 class="section-title" data-reveal>Videos and Posts</h2>
       <p class="section-desc" data-reveal>{data.content.description}</p>
 
-      <div class="linkedin-embeds" data-reveal>
-        {data.content.embeds.map((embedUrl: string, i: number) => (
-          <div class="linkedin-embed-card">
-            <iframe src={embedUrl} height="550" width="504" frameborder="0" allowfullscreen title={`LinkedIn post ${i + 1} by ${data.name}`} loading="lazy"></iframe>
-          </div>
-        ))}
+      <div class="content-list" data-reveal>
+        {data.content.posts.map((post: any, i: number) => {
+          const postUrl = post.embed.replace('/embed/feed/update/', '/feed/update/').split('?')[0];
+          return (
+            <a href={postUrl} target="_blank" rel="noopener" class="content-row">
+              <span class="content-row-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="content-row-title">{post.title}</span>
+              <span class="content-row-tag">{post.tag}</span>
+              <span class="content-row-arrow">→</span>
+            </a>
+          );
+        })}
       </div>
 
-      <div style="margin-top: 2.5rem; text-align: center;" data-reveal>
-        <a href={data.content.linkedinUrl} target="_blank" rel="noopener" class="btn btn-primary">💼 Follow on LinkedIn →</a>
+      <div style="margin-top: 2.5rem;" data-reveal>
+        <a href={data.content.linkedinUrl} target="_blank" rel="noopener" class="btn btn-ghost">💼 All Posts on LinkedIn →</a>
       </div>
     </div>
   </section>
@@ -322,17 +357,34 @@ const jsonLd = {
   <section class="section" id="services">
     <div class="section-inner">
       <p class="section-label" data-reveal>Work With Me</p>
-      <h2 class="section-title" data-reveal>Mentorship and Guidance</h2>
-      <p class="section-desc" data-reveal style="margin-bottom: 1rem;" set:html={`<strong>${data.services.stats.split(' · ')[0]}</strong> · <strong>${data.services.stats.split(' · ')[1]}</strong> · <strong>${data.services.stats.split(' · ')[2]}</strong>`} />
+      <h2 class="section-title" data-reveal>Mentorship</h2>
 
-      <div class="services-grid" data-reveal>
-        {data.services.items.map((service: any) => (
-          <a href={data.services.bookingLink} target="_blank" rel="noopener" class="service-card">
-            <span class="service-icon">{service.icon}</span>
-            <h4 class="service-title">{service.title}</h4>
-            <p class="service-desc">{service.description}</p>
-          </a>
-        ))}
+      <div class="mentor-hero" data-reveal>
+        <div class="mentor-stats">
+          <div class="mentor-stat">
+            <span class="mentor-stat-value">4.7<span class="mentor-stat-unit">/5</span></span>
+            <span class="mentor-stat-label">Rating</span>
+          </div>
+          <div class="mentor-stat">
+            <span class="mentor-stat-value">40+</span>
+            <span class="mentor-stat-label">Sessions</span>
+          </div>
+          <div class="mentor-stat">
+            <span class="mentor-stat-value">30</span>
+            <span class="mentor-stat-label">Testimonials</span>
+          </div>
+        </div>
+        <div class="content-list mentor-list">
+          {data.services.items.map((service: any, i: number) => (
+            <a href={data.services.bookingLink} target="_blank" rel="noopener" class="content-row">
+              <span class="content-row-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="content-row-title">{service.title}</span>
+              <span class="content-row-desc">{service.description}</span>
+              <span class="content-row-arrow">→</span>
+            </a>
+          ))}
+        </div>
+        <a href={data.services.bookingLink} target="_blank" rel="noopener" class="btn btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">🎯 Book a Session →</a>
       </div>
 
       <!-- Testimonials -->
@@ -350,12 +402,12 @@ const jsonLd = {
   </section>
 
   <!-- ═══════ CONTACT ═══════ -->
-  <section class="section" id="contact">
-    <div class="section-inner">
+  <section class="section section--contact" id="contact">
+    <div class="section-inner contact-inner">
       <p class="section-label" data-reveal>Contact</p>
-      <h2 class="section-title" data-reveal>Let's Connect</h2>
-      <p class="section-desc" data-reveal>
-        Interested in VLSI tools, interactive education, or collaboration?
+      <h2 class="contact-headline" data-reveal>Let's build<br/>something together.</h2>
+      <p class="section-desc" data-reveal style="max-width: 480px;">
+        Interested in VLSI tools, interactive education, or collaboration? I'd love to hear from you.
       </p>
       <div class="contact-chips" data-reveal>
         <a href={data.services.bookingLink} target="_blank" rel="noopener" class="chip chip-primary">🎯 Book a Session</a>
@@ -367,8 +419,16 @@ const jsonLd = {
 
   <!-- ═══════ FOOTER ═══════ -->
   <footer class="footer">
-    <div class="footer-left">© 2026 Akarshan Arora</div>
-    <div class="footer-right">Built with Astro</div>
+    <div class="footer-left">
+      <span class="footer-name">Akarshan Arora</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-role">VLSI EMIR CAD Engineer</span>
+    </div>
+    <div class="footer-right">
+      <span>© 2026</span>
+      <span class="footer-sep">·</span>
+      <span>Designed & built from scratch with AI</span>
+    </div>
   </footer>
 
   <!-- ═══════ GSAP + LENIS ANIMATIONS ═══════ -->
@@ -386,14 +446,10 @@ const jsonLd = {
       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (prefersReducedMotion) {
-      // Reduced motion: hide the loader immediately, skip GSAP/Lenis entirely.
-      // The CSS @media (prefers-reduced-motion: reduce) block already ensures
-      // all animated elements render at their final resting state.
       const l = document.getElementById('loader');
       if (l) l.style.display = 'none';
     } else {
       gsap.registerPlugin(ScrollTrigger);
-
 
     // ═══════════════════════════════════════
     // 1. SMOOTH SCROLL (Lenis)
@@ -426,13 +482,11 @@ const jsonLd = {
       gsap.set(cursor, { x: dx, y: dy });
     });
 
-    // Hover scaling on interactive elements
-    document.querySelectorAll('a, button, .btn, .chip, .stat, .project-card, .service-card, .timeline-item').forEach((el) => {
+    document.querySelectorAll('a, button, .btn, .chip, .stat, .project-card, .mentor-topic, .timeline-item, .content-row, .impact-card').forEach((el) => {
       el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
       el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
     });
 
-    // Magnetic pull effect on buttons
     document.querySelectorAll('.btn, .chip').forEach((btn) => {
       btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
@@ -448,48 +502,47 @@ const jsonLd = {
     });
 
     // ═══════════════════════════════════════
-    // 3. LOADING SCREEN - cinematic reveal
+    // 3. LOADING SCREEN → chains into hero
     // ═══════════════════════════════════════
     const loader = document.getElementById('loader');
     const loaderChars = loader.querySelectorAll('.loader-text span');
     const lineEl = loader.querySelector('.loader-line');
 
-    const loadTl = gsap.timeline();
-    loadTl
+    const masterTl = gsap.timeline();
+
+    // Loader sequence
+    masterTl
       .set(loaderChars, { y: '120%', rotateX: -80 })
       .to(loaderChars, {
         y: '0%',
         rotateX: 0,
-        duration: 0.8,
-        stagger: 0.035,
+        duration: 0.7,
+        stagger: 0.03,
         ease: 'power4.out',
       })
       .fromTo(lineEl,
         { scaleX: 0 },
-        { scaleX: 1, duration: 0.8, ease: 'power2.inOut', transformOrigin: 'left center' },
-        '-=0.3'
+        { scaleX: 1, duration: 0.6, ease: 'power2.inOut', transformOrigin: 'left center' },
+        '-=0.2'
       )
       .to(loaderChars, {
         y: '-120%',
         rotateX: 80,
-        duration: 0.5,
+        duration: 0.4,
         stagger: 0.02,
         ease: 'power3.in',
-      }, '+=0.4')
-      .to(lineEl, { scaleX: 0, duration: 0.3, transformOrigin: 'right center' }, '-=0.3')
+      }, '+=0.3')
+      .to(lineEl, { scaleX: 0, duration: 0.25, transformOrigin: 'right center' }, '-=0.25')
       .to(loader, {
         clipPath: 'inset(0 0 100% 0)',
-        duration: 1,
+        duration: 0.8,
         ease: 'power4.inOut',
       })
       .set(loader, { display: 'none' });
 
-    // ═══════════════════════════════════════
-    // 4. HERO - word-by-word reveal + parallax
-    // ═══════════════════════════════════════
-    const heroTl = gsap.timeline({ delay: 2.5 });
-    heroTl
-      .to('#nav', { opacity: 1, duration: 0.8, ease: 'power2.out' })
+    // Hero reveal — chains directly off loader (no fixed delay)
+    masterTl
+      .to('#nav', { opacity: 1, duration: 0.8, ease: 'power2.out' }, '-=0.4')
       .fromTo('#hero-label',
         { opacity: 0, y: 20, scale: 0.95 },
         { opacity: 1, y: 0, scale: 1, duration: 0.7, ease: 'power3.out' },
@@ -517,7 +570,9 @@ const jsonLd = {
         '-=0.2'
       );
 
-    // Hero elements parallax on scroll — different speeds create depth
+    // ═══════════════════════════════════════
+    // 4. HERO PARALLAX on scroll
+    // ═══════════════════════════════════════
     gsap.fromTo('#hero-label',
       { yPercent: 0, opacity: 1 },
       {
@@ -570,7 +625,6 @@ const jsonLd = {
       ease: 'none',
       repeat: -1,
     });
-    // Speed up marquee based on scroll velocity
     ScrollTrigger.create({
       trigger: '.marquee',
       start: 'top bottom',
@@ -584,7 +638,6 @@ const jsonLd = {
     // ═══════════════════════════════════════
     // 6. SECTION REVEALS - clip + transform
     // ═══════════════════════════════════════
-    // Section labels: slide in from left with line
     document.querySelectorAll('.section-label').forEach((el) => {
       gsap.fromTo(el,
         { x: -30, opacity: 0 },
@@ -595,10 +648,8 @@ const jsonLd = {
       );
     });
 
-    // Section titles: character split reveal
-    document.querySelectorAll('.section-title').forEach((title) => {
+    document.querySelectorAll('.section-title, .contact-headline').forEach((title) => {
       const text = title.innerHTML;
-      // Wrap each character in a span (preserve HTML tags like <br/>)
       title.innerHTML = text.replace(/(<[^>]+>)|(.)/g, (match, tag, char) => {
         if (tag) return tag;
         if (char === ' ') return ' ';
@@ -611,7 +662,6 @@ const jsonLd = {
       });
     });
 
-    // Section desc: fade + slight rise
     document.querySelectorAll('.section-desc').forEach((el) => {
       gsap.fromTo(el,
         { y: 40, opacity: 0 },
@@ -639,9 +689,8 @@ const jsonLd = {
     });
 
     // ═══════════════════════════════════════
-    // 8. EXPERIENCE TIMELINE - scroll-driven line + stagger
+    // 9. EXPERIENCE TIMELINE
     // ═══════════════════════════════════════
-    // Animate the timeline line growing as you scroll
     const timeline = document.querySelector('.timeline');
     if (timeline) {
       gsap.fromTo(timeline,
@@ -659,7 +708,6 @@ const jsonLd = {
       );
 
       document.querySelectorAll('.timeline-item').forEach((item, i) => {
-        // Slide from left with rotation
         gsap.fromTo(item,
           { x: -60, opacity: 0, rotateY: -5 },
           {
@@ -671,7 +719,6 @@ const jsonLd = {
           }
         );
 
-        // Dot pulse animation on enter
         const dot = item.querySelector('.timeline-dot');
         gsap.fromTo(dot,
           { scale: 0 },
@@ -684,7 +731,6 @@ const jsonLd = {
           }
         );
 
-        // Chips stagger
         const chips = item.querySelectorAll('.timeline-chip');
         gsap.fromTo(chips,
           { y: 10, opacity: 0, scale: 0.9 },
@@ -701,64 +747,143 @@ const jsonLd = {
     }
 
     // ═══════════════════════════════════════
-    // 10. PROJECT CARDS - dramatic scale entrance + internal parallax
+    // 10. IMPACT NUMBERS — animated counters
     // ═══════════════════════════════════════
-    const projCards = document.querySelectorAll('.project-card');
-    projCards.forEach((projCard, i) => {
-      gsap.fromTo(projCard,
-        { y: 100, opacity: 0, scale: 0.95 },
+    document.querySelectorAll('.impact-card').forEach((card, i) => {
+      gsap.fromTo(card,
+        { y: 80, opacity: 0, scale: 0.85 },
         {
           y: 0, opacity: 1, scale: 1,
-          duration: 1.2,
-          delay: i * 0.15,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: '.project-showcase', start: 'top 80%' },
+          duration: 1,
+          ease: 'back.out(1.6)',
+          delay: i * 0.12,
+          scrollTrigger: { trigger: '.impact-grid', start: 'top 82%' },
         }
       );
-      // Internal parallax: visual moves slower than info
-      const visual = projCard.querySelector('.project-visual');
-      if (visual) {
-        gsap.to(visual, {
-          yPercent: -8,
-          scrollTrigger: {
-            trigger: projCard,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: 0.6,
-          }
+
+      const numEl = card.querySelector('.impact-number') as HTMLElement;
+      if (numEl) {
+        const target = parseFloat(numEl.dataset.count || '0');
+        const obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          delay: i * 0.15 + 0.3,
+          scrollTrigger: { trigger: '.impact-grid', start: 'top 80%' },
+          onUpdate: () => {
+            numEl.textContent = target >= 100 ? Math.round(obj.val).toString() : obj.val.toFixed(target < 10 ? 0 : 0).toString();
+          },
         });
       }
-      // Tags stagger in
-      gsap.fromTo(projCard.querySelectorAll('.project-tags .tag'),
-        { y: 15, opacity: 0, scale: 0.8 },
-        {
-          y: 0, opacity: 1, scale: 1,
-          duration: 0.5,
-          stagger: 0.06,
-          ease: 'back.out(2)',
-          scrollTrigger: { trigger: projCard, start: 'top 75%' },
-        }
-      );
     });
 
     // ═══════════════════════════════════════
-    // 10. SERVICE CARDS - 3D flip-in stagger
+    // 11. PROJECT CARDS — vertical reveal entrance
     // ═══════════════════════════════════════
-    document.querySelectorAll('.service-card').forEach((card, i) => {
-      gsap.fromTo(card,
-        { y: 60, opacity: 0, rotateX: -10, transformPerspective: 800 },
+    const projectShowcase = document.getElementById('project-showcase');
+    if (projectShowcase) {
+      const cards = projectShowcase.querySelectorAll('.project-card');
+      cards.forEach((card, i) => {
+        gsap.fromTo(card,
+          { y: 80, opacity: 0, scale: 0.94 },
+          {
+            y: 0, opacity: 1, scale: 1,
+            duration: 1,
+            delay: i * 0.15,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: card, start: 'top 88%' },
+          }
+        );
+
+        gsap.fromTo(card.querySelectorAll('.project-tags .tag'),
+          { y: 12, opacity: 0, scale: 0.85 },
+          {
+            y: 0, opacity: 1, scale: 1,
+            duration: 0.5,
+            stagger: 0.06,
+            ease: 'back.out(2)',
+            scrollTrigger: { trigger: card, start: 'top 78%' },
+          }
+        );
+      });
+    }
+
+    // 3D tilt on project cards (desktop only)
+    if (window.innerWidth > 768) {
+      document.querySelectorAll('.project-card').forEach((card) => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;  // -0.5 to 0.5
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          gsap.to(card, {
+            rotateY: x * 8,
+            rotateX: -y * 6,
+            y: -6,
+            duration: 0.4,
+            ease: 'power2.out',
+            overwrite: 'auto',
+          });
+        });
+        card.addEventListener('mouseleave', () => {
+          gsap.to(card, {
+            rotateY: 0,
+            rotateX: 0,
+            y: 0,
+            duration: 0.6,
+            ease: 'elastic.out(1, 0.5)',
+            overwrite: 'auto',
+          });
+        });
+      });
+    }
+
+    // ═══════════════════════════════════════
+    // 12. CONTENT ROWS — stagger slide-in
+    // ═══════════════════════════════════════
+    document.querySelectorAll('.content-row').forEach((row, i) => {
+      gsap.fromTo(row,
+        { x: -40, opacity: 0 },
         {
-          y: 0, opacity: 1, rotateX: 0,
-          duration: 0.8,
+          x: 0, opacity: 1,
+          duration: 0.6,
           ease: 'power3.out',
-          delay: i * 0.07,
-          scrollTrigger: { trigger: '.services-grid', start: 'top 80%' },
+          delay: i * 0.08,
+          scrollTrigger: { trigger: '.content-list', start: 'top 85%' },
         }
       );
     });
 
     // ═══════════════════════════════════════
-    // 11. TESTIMONIALS - auto-scrolling continuous loop
+    // 13. MENTORSHIP — stats + topics
+    // ═══════════════════════════════════════
+    document.querySelectorAll('.mentor-stat').forEach((stat, i) => {
+      gsap.fromTo(stat,
+        { y: 30, opacity: 0 },
+        {
+          y: 0, opacity: 1,
+          duration: 0.7,
+          ease: 'power3.out',
+          delay: i * 0.1,
+          scrollTrigger: { trigger: '.mentor-stats', start: 'top 85%' },
+        }
+      );
+    });
+    document.querySelectorAll('.mentor-list .content-row').forEach((row, i) => {
+      gsap.fromTo(row,
+        { x: -40, opacity: 0 },
+        {
+          x: 0, opacity: 1,
+          duration: 0.6,
+          ease: 'power3.out',
+          delay: i * 0.08,
+          scrollTrigger: { trigger: '.mentor-list', start: 'top 85%' },
+        }
+      );
+    });
+
+    // ═══════════════════════════════════════
+    // 14. TESTIMONIALS - auto-scrolling loop
     // ═══════════════════════════════════════
     const testTrack = document.getElementById('testimonial-track');
     const testSection = document.querySelector('.testimonials');
@@ -773,7 +898,7 @@ const jsonLd = {
     }
 
     // ═══════════════════════════════════════
-    // 12. CONTACT - chips bounce in
+    // 15. CONTACT - chips bounce in
     // ═══════════════════════════════════════
     document.querySelectorAll('.chip').forEach((chip, i) => {
       gsap.fromTo(chip,
@@ -789,9 +914,9 @@ const jsonLd = {
     });
 
     // ═══════════════════════════════════════
-    // 13. SECTION PARALLAX - different scroll speeds per section
+    // 16. SECTION PARALLAX (exclude projects — handled by horizontal scroll)
     // ═══════════════════════════════════════
-    document.querySelectorAll('.section').forEach((section) => {
+    document.querySelectorAll('.section:not(.section--hscroll):not(.section--contact)').forEach((section) => {
       const inner = section.querySelector('.section-inner');
       if (!inner) return;
       gsap.fromTo(inner,
@@ -810,7 +935,7 @@ const jsonLd = {
     });
 
     // ═══════════════════════════════════════
-    // 14. SCROLL PROGRESS BAR
+    // 17. SCROLL PROGRESS BAR
     // ═══════════════════════════════════════
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) {
@@ -827,7 +952,7 @@ const jsonLd = {
     }
 
     // ═══════════════════════════════════════
-    // 15. TEXT SCRAMBLE on nav hover
+    // 18. TEXT SCRAMBLE on nav hover
     // ═══════════════════════════════════════
     const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
     document.querySelectorAll('[data-scramble]').forEach((el) => {
@@ -858,49 +983,80 @@ const jsonLd = {
     });
 
     // ═══════════════════════════════════════
-    // 16. PROJECT CARD - SVG animations
+    // 19. PROJECT SVG ANIMATIONS
     // ═══════════════════════════════════════
-    // SPR Visualizer: draw the shortest path line + pop in nodes
-    const sprPath = document.querySelector('.spr-path') as SVGPathElement;
-    if (sprPath) {
-      const len = sprPath.getTotalLength();
-      gsap.set(sprPath, { strokeDasharray: len, strokeDashoffset: len });
-      gsap.to(sprPath, {
-        strokeDashoffset: 0,
-        duration: 1.8,
-        ease: 'power2.inOut',
-        scrollTrigger: { trigger: sprPath, start: 'top 85%' },
-      });
-    }
-    const sprNodes = document.querySelectorAll('.spr-node');
-    if (sprNodes.length) {
-      gsap.fromTo(sprNodes,
-        { opacity: 0, scale: 0, transformOrigin: 'center' },
+    function animateSvgDraw(path: SVGPathElement, trigger: Element, delayVal: number, duration: number) {
+      const len = path.getTotalLength();
+      gsap.fromTo(path,
+        { strokeDasharray: len, strokeDashoffset: len },
         {
-          opacity: 1, scale: 1,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: 'back.out(2)',
-          scrollTrigger: { trigger: sprNodes[0], start: 'top 85%' },
-          delay: 0.6,
+          strokeDashoffset: 0,
+          duration,
+          delay: delayVal,
+          ease: 'power2.inOut',
+          scrollTrigger: { trigger, start: 'top 88%' },
         }
       );
     }
 
-    // IR Drop Visualizer: draw VDD and VSS waveforms
+    const sprPath = document.querySelector('.spr-path') as SVGPathElement;
+    const sprCard = sprPath?.closest('.project-card');
+    if (sprPath && sprCard) {
+      animateSvgDraw(sprPath, sprCard, 0.2, 1.5);
+    }
+
+    const sprNodes = document.querySelectorAll('.spr-node');
+    const sprNodeCard = sprNodes[0]?.closest('.project-card');
+    if (sprNodes.length && sprNodeCard) {
+      gsap.fromTo(sprNodes,
+        { opacity: 0, scale: 0, transformOrigin: 'center' },
+        {
+          opacity: 1, scale: 1,
+          duration: 0.4,
+          stagger: 0.06,
+          ease: 'back.out(2)',
+          scrollTrigger: { trigger: sprNodeCard, start: 'top 88%' },
+          delay: 0.8,
+        }
+      );
+    }
+
     const vddWave = document.querySelector('.vdd-wave') as SVGPathElement;
     const vssWave = document.querySelector('.vss-wave') as SVGPathElement;
     [vddWave, vssWave].forEach((wave) => {
       if (!wave) return;
-      const len = wave.getTotalLength();
-      gsap.set(wave, { strokeDasharray: len, strokeDashoffset: len });
-      gsap.to(wave, {
-        strokeDashoffset: 0,
-        duration: 2,
-        ease: 'power2.inOut',
-        scrollTrigger: { trigger: wave, start: 'top 85%' },
-      });
+      const waveCard = wave.closest('.project-card');
+      if (waveCard) animateSvgDraw(wave, waveCard, 0.2, 1.5);
     });
+
+    // ═══════════════════════════════════════
+    // 20. MOBILE NAV
+    // ═══════════════════════════════════════
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.getElementById('nav-links');
+    if (hamburger && navLinks) {
+      const toggleNav = () => {
+        const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+        hamburger.setAttribute('aria-expanded', String(!isOpen));
+        navLinks.classList.toggle('nav-links--open');
+        hamburger.classList.toggle('nav-hamburger--open');
+      };
+
+      hamburger.addEventListener('click', toggleNav);
+
+      // Close on link click
+      navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('nav-links--open')) toggleNav();
+        });
+      });
+
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('nav-links--open')) toggleNav();
+      });
+    }
+
     } // end else (prefers-reduced-motion guard)
   </script>
 </body>

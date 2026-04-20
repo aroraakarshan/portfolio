@@ -137,11 +137,11 @@
   "content": {
     "description": "I share bite-sized technical content on VLSI EMIR concepts, Python automation tips, and CAD workflows on LinkedIn.",
     "linkedinUrl": "https://www.linkedin.com/in/aroraakarshan/",
-    "embeds": [
-      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7440036322578407424?collapsed=1",
-      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7349516648816496642?collapsed=1",
-      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7315049307340959744?collapsed=1",
-      "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7303503179936108545?collapsed=1"
+    "posts": [
+      { "title": "Vector vs Vectorless Dynamic IR Drop Analysis", "tag": "EMIR", "embed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7440036322578407424?collapsed=1" },
+      { "title": "Static IR Drop — Power Grid Fundamentals", "tag": "EMIR", "embed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7349516648816496642?collapsed=1" },
+      { "title": "Crack the VLSI Python Interview", "tag": "Python", "embed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7315049307340959744?collapsed=1" },
+      { "title": "What is Shortest Path Resistance?", "tag": "EMIR", "embed": "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7303503179936108545?collapsed=1" }
     ]
   },
   "services": {
