@@ -1,0 +1,209 @@
+---
+import WaveDivider from '../components/WaveDivider.astro';
+import '../styles/global.css';
+import data from '../data/portfolio.json';
+import shortsData from '../data/shorts.json';
+
+const canonicalURL = new URL('/shorts', Astro.site);
+const ogImage = new URL('/og-image.png', Astro.site).toString();
+
+const categories = [
+  { id: 'all', label: 'All' },
+  ...shortsData.courses.map(c => ({ id: c.shortCategory, label: c.name }))
+];
+
+const courseMap = Object.fromEntries(
+  shortsData.courses.map(c => [c.shortCategory, c])
+);
+
+// Group shorts by category for section display
+const grouped = shortsData.courses.map(course => ({
+  ...course,
+  shorts: shortsData.shorts.filter(s => s.category === course.shortCategory)
+}));
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shorts — {data.name}</title>
+  <meta name="description" content={shortsData.description} />
+  <meta name="author" content={data.name} />
+  <meta name="theme-color" content="#060a13" />
+  <link rel="icon" href="/favicon.svg" />
+  <link rel="canonical" href={canonicalURL.toString()} />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={data.name} />
+  <meta property="og:title" content={`Shorts — ${data.name}`} />
+  <meta property="og:description" content={shortsData.description} />
+  <meta property="og:url" content={canonicalURL.toString()} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={`Shorts — ${data.name}`} />
+  <meta name="twitter:description" content={shortsData.description} />
+</head>
+<body>
+  <!-- Film grain -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Nav (simplified for sub-page) -->
+  <nav class="shorts-nav">
+    <a href="/" class="nav-brand">
+      <div class="nav-dot"></div>
+      <span>{data.name}</span>
+    </a>
+    <div class="shorts-nav-links">
+      <a href="/#projects">Projects</a>
+      <a href="/#content">Content</a>
+      <a href={data.social.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="shorts-hero">
+    <p class="section-label">Shorts</p>
+    <h1 class="shorts-hero-title">{shortsData.headline}</h1>
+    <p class="shorts-hero-desc">{shortsData.description}</p>
+
+    <!-- Filter tabs -->
+    <div class="shorts-filters" id="shorts-filters">
+      {categories.map(cat => (
+        <button
+          class={`shorts-filter-btn ${cat.id === 'all' ? 'active' : ''}`}
+          data-filter={cat.id}
+        >
+          {cat.label}
+        </button>
+      ))}
+    </div>
+  </header>
+
+  <!-- Course sections with shorts -->
+  <main class="shorts-main">
+    {grouped.map(group => (
+      <section class="shorts-section" data-category={group.shortCategory}>
+        <div class="shorts-section-header">
+          <div>
+            <h2 class="shorts-section-title">{group.name}</h2>
+            <p class="shorts-section-tagline">{group.tagline}</p>
+          </div>
+          <a href={group.href} target="_blank" rel="noopener" class="shorts-course-link">
+            Explore full course →
+          </a>
+        </div>
+
+        <div class="shorts-grid">
+          {group.shorts.map(short => (
+            <article class="short-card" data-category={short.category}>
+              <!-- Video placeholder (9:16 aspect ratio) -->
+              <div class="short-video-wrap">
+                <div class="short-poster">
+                  <!-- Placeholder visual per category -->
+                  <div class={`short-placeholder short-placeholder--${short.category}`}>
+                    <svg viewBox="0 0 60 60" fill="none" class="short-play-icon">
+                      <circle cx="30" cy="30" r="28" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="rgba(0,0,0,0.3)" />
+                      <path d="M24 18 L44 30 L24 42Z" fill="rgba(255,255,255,0.9)" />
+                    </svg>
+                    <span class="short-duration">{Math.floor(short.duration / 60)}:{String(short.duration % 60).padStart(2, '0')}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Info -->
+              <div class="short-info">
+                <div class="short-meta">
+                  <span class={`tag tag-${courseMap[short.category]?.color || 'blue'}`}>
+                    {short.category.toUpperCase()}
+                  </span>
+                  <span class="short-duration-text">{short.duration}s</span>
+                </div>
+                <h3 class="short-title">{short.title}</h3>
+                <p class="short-desc">{short.description}</p>
+
+                <!-- Links -->
+                <div class="short-links">
+                  {short.courseLesson && (
+                    <a
+                      href={`${courseMap[short.category]?.href}${short.courseLesson}`}
+                      target="_blank"
+                      rel="noopener"
+                      class="short-link short-link--lesson"
+                    >
+                      Full lesson →
+                    </a>
+                  )}
+                  <div class="short-platforms">
+                    {short.platforms.youtube && short.platforms.youtube !== '#' && (
+                      <a href={short.platforms.youtube} target="_blank" rel="noopener" class="short-platform" aria-label="Watch on YouTube">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+                      </a>
+                    )}
+                    {short.platforms.linkedin && short.platforms.linkedin !== '#' && (
+                      <a href={short.platforms.linkedin} target="_blank" rel="noopener" class="short-platform" aria-label="Watch on LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </main>
+
+  <!-- Back to portfolio CTA -->
+  <section class="shorts-cta-section">
+    <p class="section-label">More</p>
+    <h2 class="shorts-cta-title">Want the full picture?</h2>
+    <p class="shorts-hero-desc">See my projects, experience, and mentorship offerings.</p>
+    <div class="shorts-cta-links">
+      <a href="/" class="btn btn-primary">← Back to Portfolio</a>
+      <a href={data.services.bookingLink} target="_blank" rel="noopener" class="btn btn-ghost">🎯 Book a Session</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-left">
+      <span class="footer-name">{data.name}</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-role">{data.title}</span>
+    </div>
+    <div class="footer-right">
+      <span>© 2026</span>
+      <span class="footer-sep">·</span>
+      <span>Designed & built from scratch with AI</span>
+    </div>
+  </footer>
+
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.shorts-filter-btn');
+    const sections = document.querySelectorAll('.shorts-section');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        sections.forEach(section => {
+          const cat = section.getAttribute('data-category');
+          if (filter === 'all' || cat === filter) {
+            (section as HTMLElement).style.display = '';
+          } else {
+            (section as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+{
+  "headline": "Bite-Sized Engineering",
+  "description": "Complex VLSI and software concepts explained in 60 seconds or less. Watch on your favourite platform or right here.",
+  "courses": [
+    {
+      "id": "pdn-from-zero",
+      "name": "PDN from Zero",
+      "tagline": "Master power delivery networks — interactive lessons, zero prerequisites",
+      "href": "https://pdn-from-zero.akarshanarora.com",
+      "shortCategory": "pdn",
+      "color": "blue"
+    },
+    {
+      "id": "yaml-from-zero",
+      "name": "YAML from Zero",
+      "tagline": "Learn YAML the interactive way — from anchors to schemas",
+      "href": "https://yaml-from-zero.akarshanarora.com",
+      "shortCategory": "yaml",
+      "color": "green"
+    }
+  ],
+  "shorts": [
+    {
+      "id": "pdn-what-is-ir-drop",
+      "category": "pdn",
+      "title": "What Is IR Drop?",
+      "description": "The voltage you design isn't the voltage your transistors see. Here's why.",
+      "src": "",
+      "poster": "",
+      "duration": 58,
+      "courseLesson": "/lessons/ir-drop",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    },
+    {
+      "id": "pdn-decap-placement",
+      "category": "pdn",
+      "title": "Decap Placement in 60s",
+      "description": "Where you place decaps matters more than how many you place.",
+      "src": "",
+      "poster": "",
+      "duration": 62,
+      "courseLesson": "/lessons/decap-placement",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    },
+    {
+      "id": "pdn-static-vs-dynamic",
+      "category": "pdn",
+      "title": "Static vs Dynamic IR Drop",
+      "description": "One is a snapshot. The other is the movie. You need both.",
+      "src": "",
+      "poster": "",
+      "duration": 55,
+      "courseLesson": "/lessons/static-vs-dynamic",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    },
+    {
+      "id": "pdn-power-grid-101",
+      "category": "pdn",
+      "title": "Power Grid 101",
+      "description": "VDD rails, VSS rails, vias — your chip's circulatory system explained.",
+      "src": "",
+      "poster": "",
+      "duration": 48,
+      "courseLesson": "/lessons/power-grid",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    },
+    {
+      "id": "pdn-em-basics",
+      "category": "pdn",
+      "title": "Electromigration Basics",
+      "description": "Atoms move. Wires fail. Here's what every PD engineer should know.",
+      "src": "",
+      "poster": "",
+      "duration": 65,
+      "courseLesson": "/lessons/electromigration",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    },
+    {
+      "id": "yaml-anchors-aliases",
+      "category": "yaml",
+      "title": "YAML Anchors & Aliases",
+      "description": "Stop copying config blocks. Use anchors to DRY up your YAML.",
+      "src": "",
+      "poster": "",
+      "duration": 52,
+      "courseLesson": "/lessons/anchors-aliases",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    },
+    {
+      "id": "yaml-multiline-strings",
+      "category": "yaml",
+      "title": "Multiline Strings in YAML",
+      "description": "Pipe, fold, clip, strip — finally understand the difference.",
+      "src": "",
+      "poster": "",
+      "duration": 45,
+      "courseLesson": "/lessons/multiline-strings",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    },
+    {
+      "id": "yaml-gotchas",
+      "category": "yaml",
+      "title": "3 YAML Gotchas",
+      "description": "Norway is not false. 08 is not 8. And tabs will ruin your day.",
+      "src": "",
+      "poster": "",
+      "duration": 60,
+      "courseLesson": "/lessons/common-gotchas",
+      "platforms": {
+        "youtube": "#",
+        "linkedin": "#"
+      }
+    }
+  ]
+}

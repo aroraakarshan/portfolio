@@ -1279,3 +1279,312 @@ a { color: inherit; text-decoration: none; }
   .hero-cta { flex-direction: column; align-items: center; }
 }
 
+/* ───────── SHORTS PAGE ───────── */
+.shorts-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1.25rem var(--gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(6, 10, 19, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.shorts-nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+.shorts-nav-links a {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.3s;
+  letter-spacing: 0.02em;
+}
+.shorts-nav-links a:hover { color: #fff; }
+
+.shorts-hero {
+  padding: 8rem var(--gutter) 4rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.shorts-hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.shorts-hero-desc {
+  font-size: 1.05rem;
+  color: var(--text-dim);
+  line-height: 1.8;
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+}
+
+/* Filter tabs */
+.shorts-filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.shorts-filter-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 99px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: inherit;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.shorts-filter-btn:hover {
+  border-color: rgba(148, 163, 184, 0.3);
+  color: var(--text-dim);
+}
+.shorts-filter-btn.active {
+  background: var(--accent-cyan);
+  color: #060a13;
+  border-color: var(--accent-cyan);
+}
+
+/* Main content */
+.shorts-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 4rem;
+}
+
+/* Course sections */
+.shorts-section {
+  margin-bottom: 5rem;
+}
+.shorts-section:last-child {
+  margin-bottom: 2rem;
+}
+.shorts-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.shorts-section-title {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.3rem;
+}
+.shorts-section-tagline {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.shorts-course-link {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  white-space: nowrap;
+  transition: gap 0.3s ease;
+  flex-shrink: 0;
+}
+.shorts-course-link:hover {
+  color: #fff;
+}
+
+/* Shorts grid — 3-up for vertical cards */
+.shorts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual short card */
+.short-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.short-card:hover {
+  border-color: rgba(148, 163, 184, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Video area — 9:16 aspect ratio */
+.short-video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  overflow: hidden;
+}
+.short-poster {
+  width: 100%;
+  height: 100%;
+}
+
+/* Placeholder visuals (replace with real posters later) */
+.short-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+.short-placeholder--pdn {
+  background: linear-gradient(160deg, #0a1628 0%, #0c1a35 40%, #0f1d3a 100%);
+  background-image:
+    radial-gradient(circle at 30% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+}
+.short-placeholder--yaml {
+  background: linear-gradient(160deg, #0a1a14 0%, #0c2418 40%, #0f2d1f 100%);
+  background-image:
+    radial-gradient(circle at 30% 40%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+}
+
+.short-play-icon {
+  width: 60px;
+  height: 60px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.short-card:hover .short-play-icon {
+  transform: scale(1.1);
+}
+
+.short-duration {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+/* Card info */
+.short-info {
+  padding: 1rem 1.25rem 1.25rem;
+}
+.short-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+.short-duration-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.short-title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+}
+.short-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+/* Links row */
+.short-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.short-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+.short-link--lesson {
+  color: var(--accent-cyan);
+}
+.short-link--lesson:hover {
+  color: #fff;
+}
+.short-platforms {
+  display: flex;
+  gap: 0.5rem;
+}
+.short-platform {
+  color: var(--text-muted);
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+}
+.short-platform:hover {
+  color: #fff;
+}
+
+/* Bottom CTA section */
+.shorts-cta-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem var(--gutter);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+.shorts-cta-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+.shorts-cta-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Responsive — shorts page */
+@media (max-width: 768px) {
+  .shorts-nav-links { display: none; }
+  .shorts-hero { padding-top: 5rem; }
+  .shorts-section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .shorts-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .shorts-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .short-info { padding: 0.75rem; }
+  .short-desc { display: none; }
+  .shorts-cta-links { flex-direction: column; }
+}
+
