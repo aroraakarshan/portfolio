@@ -1,5 +1,9 @@
 ---
 import WaveDivider from '../components/WaveDivider.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Grain from '../components/Grain.astro';
+import Cursor from '../components/Cursor.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 import data from '../data/portfolio.json';
 
@@ -19,36 +23,13 @@ const jsonLd = {
 ---
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{data.name} — {data.title}</title>
-  <meta name="description" content={data.heroDescription} />
-  <meta name="author" content={data.name} />
-  <meta name="theme-color" content="#060a13" />
-  <link rel="icon" href="/favicon.svg" />
-  <link rel="canonical" href={canonicalURL.toString()} />
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content={data.name} />
-  <meta property="og:title" content={`${data.name} — ${data.title}`} />
-  <meta property="og:description" content={data.heroDescription} />
-  <meta property="og:url" content={canonicalURL.toString()} />
-  <meta property="og:image" content={ogImage} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content={`${data.name} — ${data.title}`} />
-  <!-- Square variant for WhatsApp/iMessage/Telegram -->
-  <meta property="og:image" content={ogImageSquare} />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="1200" />
-  <meta property="og:image:alt" content={`${data.name} — ${data.title}`} />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${data.name} — ${data.title}`} />
-  <meta name="twitter:description" content={data.heroDescription} />
-  <meta name="twitter:image" content={ogImage} />
+  <BaseHead
+    title={`${data.name} — ${data.title}`}
+    description={data.heroDescription}
+    canonicalURL={canonicalURL}
+    ogImage={ogImage}
+    ogImageSquare={ogImageSquare}
+  />
 
   <!-- Structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
@@ -58,7 +39,7 @@ const jsonLd = {
   <a href="#hero" class="skip-link">Skip to main content</a>
 
   <!-- Film grain overlay -->
-  <div class="grain" aria-hidden="true"></div>
+  <Grain />
 
   <!-- Side nav dots -->
   <div class="side-nav" id="side-nav" aria-hidden="true">
@@ -73,8 +54,7 @@ const jsonLd = {
   </div>
 
   <!-- Custom Cursor (hidden via CSS on touch + reduced motion) -->
-  <div class="cursor" id="cursor" aria-hidden="true"></div>
-  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <Cursor />
 
   <!-- Particles (vanilla TS, no React runtime) -->
   <canvas id="particle-canvas" aria-hidden="true"
@@ -432,19 +412,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- ═══════ FOOTER ═══════ -->
-  <footer class="footer">
-    <div class="footer-left">
-      <span class="footer-name">Akarshan Arora</span>
-      <span class="footer-sep">·</span>
-      <span class="footer-role">VLSI EMIR CAD Engineer</span>
-    </div>
-    <div class="footer-right">
-      <span>© 2026</span>
-      <span class="footer-sep">·</span>
-      <span>Designed & built from scratch with AI</span>
-    </div>
-  </footer>
+  <Footer />
 
   <!-- ═══════ GSAP + LENIS ANIMATIONS ═══════ -->
   <script>
@@ -452,6 +420,7 @@ const jsonLd = {
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
     import Lenis from '@studio-freight/lenis';
     import { initParticleCanvas } from '../scripts/particleCanvas';
+    import { initCursor } from '../scripts/cursor';
 
     // Always init the particle canvas (it respects reduced-motion internally).
     const canvasEl = document.getElementById('particle-canvas') as HTMLCanvasElement | null;
@@ -481,40 +450,7 @@ const jsonLd = {
     // ═══════════════════════════════════════
     // 2. CUSTOM CURSOR + MAGNETIC EFFECT
     // ═══════════════════════════════════════
-    const cursor = document.getElementById('cursor');
-    const cursorDot = document.getElementById('cursor-dot');
-    let cx = -100, cy = -100, dx = -100, dy = -100;
-
-    document.addEventListener('mousemove', (e) => {
-      cx = e.clientX;
-      cy = e.clientY;
-      gsap.to(cursorDot, { x: cx, y: cy, duration: 0.08, ease: 'power2.out' });
-    });
-
-    gsap.ticker.add(() => {
-      dx += (cx - dx) * 0.1;
-      dy += (cy - dy) * 0.1;
-      gsap.set(cursor, { x: dx, y: dy });
-    });
-
-    document.querySelectorAll('a, button, .btn, .chip, .stat, .project-card, .mentor-topic, .timeline-item, .content-row, .impact-card').forEach((el) => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
-    });
-
-    document.querySelectorAll('.btn, .chip').forEach((btn) => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const bx = rect.left + rect.width / 2;
-        const by = rect.top + rect.height / 2;
-        const pullX = (e.clientX - bx) * 0.2;
-        const pullY = (e.clientY - by) * 0.2;
-        gsap.to(btn, { x: pullX, y: pullY, duration: 0.4, ease: 'power3.out' });
-      });
-      btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1, 0.4)' });
-      });
-    });
+    initCursor();
 
     // ═══════════════════════════════════════
     // 3. LOADING SCREEN → chains into hero
