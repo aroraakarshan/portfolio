@@ -32,3 +32,9 @@ bun.lock
 # misc
 *.tgz
 *.log
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
