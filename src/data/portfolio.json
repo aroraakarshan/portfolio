@@ -107,6 +107,22 @@
       ]
     }
   ],
+  "courses": {
+    "label": "Courses & Tutorials",
+    "description": "Free, interactive tutorials that take you from zero to understanding — no prior knowledge needed.",
+    "items": [
+      {
+        "name": "YAML from Zero",
+        "description": "An interactive tutorial that teaches YAML from absolute basics to advanced features — with live examples, quizzes, and a built-in playground.",
+        "href": "https://aroraakarshan.github.io/yaml-from-zero/",
+        "browserUrl": "aroraakarshan.github.io/yaml-from-zero",
+        "tags": [
+          { "label": "Tutorial", "color": "amber" },
+          { "label": "YAML", "color": "purple" }
+        ]
+      }
+    ]
+  },
   "projects": {
     "suiteLabel": "PDN Toy Tools",
     "suiteLink": "https://pdn-toy-tools.akarshanarora.com/",

@@ -47,6 +47,7 @@ const jsonLd = {
     <a href="#about" class="side-nav-dot" data-section="about"><span>About</span></a>
     <a href="#experience" class="side-nav-dot" data-section="experience"><span>Experience</span></a>
     <a href="#impact" class="side-nav-dot" data-section="impact"><span>Impact</span></a>
+    <a href="#courses" class="side-nav-dot" data-section="courses"><span>Courses</span></a>
     <a href="#projects" class="side-nav-dot" data-section="projects"><span>Projects</span></a>
     <a href="#content" class="side-nav-dot" data-section="content"><span>Content</span></a>
     <a href="#services" class="side-nav-dot" data-section="services"><span>Mentorship</span></a>
@@ -80,6 +81,7 @@ const jsonLd = {
     <div class="nav-links" id="nav-links">
       <a href="#about" data-scramble>About</a>
       <a href="#experience" data-scramble>Experience</a>
+      <a href="#courses" data-scramble>Courses</a>
       <a href="#projects" data-scramble>Projects</a>
       <a href="#services" data-scramble>Mentorship</a>
       <a href="#contact" data-scramble>Contact</a>
@@ -204,6 +206,42 @@ const jsonLd = {
           <span class="impact-number" data-count="23">0</span><span class="impact-suffix">M</span>
           <span class="impact-label">Net Segments Analyzed</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ LEARNING ═══════ -->
+  <section class="section" id="courses">
+    <div class="section-inner">
+      <p class="section-label" data-reveal>{data.courses.label}</p>
+      <h2 class="section-title" data-reveal>Free Interactive Tutorials</h2>
+      <p class="section-desc" data-reveal style="margin-bottom: 1.5rem; max-width: 640px;">
+        {data.courses.description}
+      </p>
+
+      <div class="project-showcase" id="courses-showcase" data-reveal>
+        {data.courses.items.map((item: any) => (
+          <a href={item.href} target="_blank" rel="noopener" class="project-card">
+            <div class="project-visual">
+              <img
+                src="/yaml-from-zero-thumb.png"
+                alt={`${item.name} screenshot`}
+                class="project-screenshot"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-info">
+              <div class="project-tags">
+                {item.tags.map((tag: any) => (
+                  <span class={`tag tag-${tag.color}`}>{tag.label}</span>
+                ))}
+              </div>
+              <h3 class="project-name">{item.name}</h3>
+              <p class="project-desc">{item.description}</p>
+              <span class="project-link">Start Learning →</span>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -759,9 +797,10 @@ const jsonLd = {
     // ═══════════════════════════════════════
     // 11. PROJECT CARDS — vertical reveal entrance
     // ═══════════════════════════════════════
-    const projectShowcase = document.getElementById('project-showcase');
-    if (projectShowcase) {
-      const cards = projectShowcase.querySelectorAll('.project-card');
+    ['project-showcase', 'courses-showcase'].forEach((id) => {
+      const showcase = document.getElementById(id);
+      if (!showcase) return;
+      const cards = showcase.querySelectorAll('.project-card');
       cards.forEach((card, i) => {
         gsap.fromTo(card,
           { y: 80, opacity: 0, scale: 0.94 },
@@ -785,7 +824,7 @@ const jsonLd = {
           }
         );
       });
-    }
+    });
 
     // 3D tilt on project cards (desktop only)
     if (window.innerWidth > 768) {
@@ -1052,7 +1091,7 @@ const jsonLd = {
     }
 
     // Track active section
-    const sections = ['hero', 'about', 'experience', 'impact', 'projects', 'content', 'services', 'contact'];
+    const sections = ['hero', 'about', 'experience', 'impact', 'courses', 'projects', 'content', 'services', 'contact'];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (!el) return;
