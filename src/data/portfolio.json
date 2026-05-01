@@ -114,8 +114,8 @@
       {
         "name": "YAML from Zero",
         "description": "An interactive tutorial that teaches YAML from absolute basics to advanced features — with live examples, quizzes, and a built-in playground.",
-        "href": "https://aroraakarshan.github.io/yaml-from-zero/",
-        "browserUrl": "aroraakarshan.github.io/yaml-from-zero",
+        "href": "https://courses.akarshanarora.com/yaml-from-zero/",
+        "browserUrl": "courses.akarshanarora.com/yaml-from-zero",
         "tags": [
           { "label": "Tutorial", "color": "amber" },
           { "label": "YAML", "color": "purple" }
