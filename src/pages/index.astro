@@ -210,39 +210,23 @@ const jsonLd = {
     </div>
   </section>
 
-  <!-- ═══════ LEARNING ═══════ -->
+  <!-- ═══════ COURSES ═══════ -->
   <section class="section" id="courses">
     <div class="section-inner">
       <p class="section-label" data-reveal>{data.courses.label}</p>
       <h2 class="section-title" data-reveal>Free Interactive Tutorials</h2>
-      <p class="section-desc" data-reveal style="margin-bottom: 1.5rem; max-width: 640px;">
+      <p class="section-desc" data-reveal style="max-width: 560px;">
         {data.courses.description}
       </p>
-
-      <div class="project-showcase" id="courses-showcase" data-reveal>
-        {data.courses.items.map((item: any) => (
-          <a href={item.href} target="_blank" rel="noopener" class="project-card">
-            <div class="project-visual">
-              <img
-                src="/yaml-from-zero-thumb.png"
-                alt={`${item.name} screenshot`}
-                class="project-screenshot"
-                loading="lazy"
-              />
-            </div>
-            <div class="project-info">
-              <div class="project-tags">
-                {item.tags.map((tag: any) => (
-                  <span class={`tag tag-${tag.color}`}>{tag.label}</span>
-                ))}
-              </div>
-              <h3 class="project-name">{item.name}</h3>
-              <p class="project-desc">{item.description}</p>
-              <span class="project-link">Start Learning →</span>
-            </div>
-          </a>
-        ))}
-      </div>
+      <a
+        href={data.courses.href}
+        target="_blank" rel="noopener"
+        class="btn btn-primary"
+        data-reveal
+        style="margin-top: 1.5rem;"
+      >
+        Visit courses.akarshanarora.com →
+      </a>
     </div>
   </section>
 
