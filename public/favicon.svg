@@ -3,14 +3,18 @@
   <!-- Left A: /\ rising to shared center peak -->
   <!-- Right A (inverted): \/ falling from shared center peak -->
   <!-- Together they form: /\/ with a horizontal crossbar — like N with a bar -->
-  <g stroke="#06b6d4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <!-- Left leg of first A -->
-    <line x1="22" y1="100" x2="64" y2="28"/>
-    <!-- Shared center leg (the "N" vertical) -->
-    <line x1="64" y1="28" x2="64" y2="100"/>
-    <!-- Right leg rising back up (inverted A) -->
-    <line x1="64" y1="100" x2="106" y2="28"/>
-    <!-- Crossbar spanning both A's -->
-    <line x1="32" y1="72" x2="96" y2="72"/>
+  <g stroke="#FAFAF7" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Left A (normal) - white -->
+    <line x1="24" y1="98" x2="40" y2="30"/>
+    <line x1="40" y1="30" x2="56" y2="98"/>
+  </g>
+  <g stroke="#C45D2C" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Right A (inverted) - terracotta -->
+    <line x1="60" y1="30" x2="76" y2="98"/>
+    <line x1="76" y1="98" x2="92" y2="30"/>
+  </g>
+  <g stroke="#C69A3A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Single crossbar - symmetric endpoints at outer leg intersections -->
+    <line x1="30" y1="72" x2="82" y2="72"/>
   </g>
 </svg>
