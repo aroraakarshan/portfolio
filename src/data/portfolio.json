@@ -110,8 +110,8 @@
   "courses": {
     "label": "Courses & Tutorials",
     "description": "Free, interactive tutorials and downloadable resources for VLSI engineers.",
-    "href": "https://courses.akarshanarora.com",
-    "browserUrl": "courses.akarshanarora.com",
+    "href": "https://courses.akarshanarora.com/yaml-from-zero/",
+    "browserUrl": "courses.akarshanarora.com/yaml-from-zero",
     "tags": [
       { "label": "Tutorials", "color": "amber" },
       { "label": "Resources", "color": "green" }
