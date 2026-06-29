@@ -24,7 +24,7 @@
     "Physical Design"
   ],
   "about": {
-    "headline": "10+ years in VLSI\npower integrity",
+    "headline": "11 years in VLSI\npower integrity",
     "description": "Senior EMIR CAD Engineer at <strong>Microsoft</strong>, previously at <strong>Qualcomm</strong> and <strong>NXP</strong>. I build automation and <strong>AI-assisted debug workflows</strong> that cut analysis turnaround from days to hours — so engineers spend time fixing problems, not finding them.",
     "skills": [
       { "label": "VLSI", "detail": "Power Delivery · EMIR · IR Drop · EM Analysis", "color": "blue" },
