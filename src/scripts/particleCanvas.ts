@@ -105,7 +105,7 @@ export function initParticleCanvas(canvas: HTMLCanvasElement): () => void {
           nodes: pathNodes,
           progress: Math.random(),
           speed: 0.003 + Math.random() * 0.004,
-          color: ['#3b82f6', '#06b6d4', '#22c55e', '#a855f7'][Math.floor(Math.random() * 4)],
+          color: ['#d97547', '#c98a5e', '#b5613a', '#e0a07a'][Math.floor(Math.random() * 4)],
         });
       }
     }
@@ -141,7 +141,7 @@ export function initParticleCanvas(canvas: HTMLCanvasElement): () => void {
           ctx.beginPath();
           ctx.moveTo(n.x, n.y);
           ctx.lineTo(n2.x, n2.y);
-          ctx.strokeStyle = n.layer === 1 ? 'rgba(59,130,246,0.06)' : 'rgba(6,182,212,0.04)';
+          ctx.strokeStyle = n.layer === 1 ? 'rgba(217,117,71,0.06)' : 'rgba(245,242,236,0.04)';
           ctx.lineWidth = n.layer === 1 ? 1 : 0.5;
           ctx.stroke();
         }
@@ -151,14 +151,14 @@ export function initParticleCanvas(canvas: HTMLCanvasElement): () => void {
           ctx.beginPath();
           ctx.moveTo(n.x, n.y);
           ctx.lineTo(n2.x, n2.y);
-          ctx.strokeStyle = n.layer === 1 ? 'rgba(59,130,246,0.06)' : 'rgba(6,182,212,0.04)';
+          ctx.strokeStyle = n.layer === 1 ? 'rgba(217,117,71,0.06)' : 'rgba(245,242,236,0.04)';
           ctx.lineWidth = n.layer === 1 ? 1 : 0.5;
           ctx.stroke();
         }
         // Node dot
         ctx.beginPath();
         ctx.arc(n.x, n.y, NODE_RADIUS * 0.8, 0, Math.PI * 2);
-        ctx.fillStyle = n.layer === 1 ? 'rgba(59,130,246,0.2)' : 'rgba(6,182,212,0.12)';
+        ctx.fillStyle = n.layer === 1 ? 'rgba(217,117,71,0.22)' : 'rgba(245,242,236,0.1)';
         ctx.fill();
       }
     }
@@ -194,7 +194,7 @@ export function initParticleCanvas(canvas: HTMLCanvasElement): () => void {
             ctx.globalAlpha = alpha * 1.5;
             ctx.lineWidth = 1 + avgHeat * 1.5;
           } else {
-            ctx.strokeStyle = n.layer === 1 ? '#3b82f6' : '#06b6d4';
+            ctx.strokeStyle = n.layer === 1 ? '#d97547' : '#8a857d';
             ctx.globalAlpha = alpha;
             ctx.lineWidth = n.layer === 1 ? 1 : 0.5;
           }
@@ -214,7 +214,7 @@ export function initParticleCanvas(canvas: HTMLCanvasElement): () => void {
             ctx.globalAlpha = alpha * 1.5;
             ctx.lineWidth = 1 + avgHeat * 1.5;
           } else {
-            ctx.strokeStyle = n.layer === 1 ? '#3b82f6' : '#06b6d4';
+            ctx.strokeStyle = n.layer === 1 ? '#d97547' : '#8a857d';
             ctx.globalAlpha = alpha;
             ctx.lineWidth = n.layer === 1 ? 1 : 0.5;
           }
@@ -260,7 +260,7 @@ export function initParticleCanvas(canvas: HTMLCanvasElement): () => void {
         ctx.fillStyle = heatColor(n.heat);
         ctx.globalAlpha = 0.3 + n.heat * 0.6;
       } else {
-        ctx.fillStyle = n.layer === 1 ? '#3b82f6' : '#06b6d4';
+        ctx.fillStyle = n.layer === 1 ? '#d97547' : '#8a857d';
         ctx.globalAlpha = n.baseAlpha;
       }
       ctx.fill();

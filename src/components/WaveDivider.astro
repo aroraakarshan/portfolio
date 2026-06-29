@@ -5,7 +5,7 @@ interface Props {
   color?: string;
 }
 
-const { id = 'wave', flip = false, color = 'var(--accent-blue, #3b82f6)' } = Astro.props;
+const { id = 'wave', flip = false, color = 'var(--accent, #d97547)' } = Astro.props;
 ---
 
 <div class={`wave-divider ${flip ? 'wave-divider--flip' : ''}`} aria-hidden="true">

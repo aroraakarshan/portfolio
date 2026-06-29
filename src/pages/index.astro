@@ -123,7 +123,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <WaveDivider color="#3b82f6" />
+  <WaveDivider color="var(--accent)" />
 
   <!-- ═══════ MARQUEE ═══════ -->
   <div class="marquee">
@@ -158,7 +158,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <WaveDivider color="#a855f7" flip />
+  <WaveDivider color="var(--accent)" flip />
 
   <!-- ═══════ EXPERIENCE ═══════ -->
   <section class="section" id="experience">
@@ -262,8 +262,8 @@ const jsonLd = {
                       <!-- 3D grid representing power delivery network -->
                       <defs>
                         <linearGradient id="grid-grad-spr" x1="0" y1="0" x2="504" y2="220">
-                          <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6" />
-                          <stop offset="100%" stop-color="#22c55e" stop-opacity="0.4" />
+                          <stop offset="0%" stop-color="#7f9bb8" stop-opacity="0.6" />
+                          <stop offset="100%" stop-color="#6b9471" stop-opacity="0.4" />
                         </linearGradient>
                       </defs>
                       <!-- Horizontal grid lines -->
@@ -277,45 +277,45 @@ const jsonLd = {
                       <line x1="280" y1="40" x2="280" y2="200" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
                       <line x1="370" y1="40" x2="370" y2="200" stroke="url(#grid-grad-spr)" stroke-width="0.8" class="grid-line" />
                       <!-- Shortest path highlight -->
-                      <path d="M100,180 L100,140 L190,140 L190,100 L280,100 L370,100 L370,60" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" class="spr-path" fill="none" />
+                      <path d="M100,180 L100,140 L190,140 L190,100 L280,100 L370,100 L370,60" stroke="#6b9471" stroke-width="2.5" stroke-linecap="round" class="spr-path" fill="none" />
                       <!-- Nodes -->
-                      <circle cx="100" cy="180" r="4" fill="#3b82f6" class="spr-node" />
-                      <circle cx="100" cy="140" r="3" fill="#06b6d4" class="spr-node" />
-                      <circle cx="190" cy="140" r="3" fill="#06b6d4" class="spr-node" />
-                      <circle cx="190" cy="100" r="3" fill="#06b6d4" class="spr-node" />
-                      <circle cx="280" cy="100" r="3" fill="#06b6d4" class="spr-node" />
-                      <circle cx="370" cy="100" r="3" fill="#06b6d4" class="spr-node" />
-                      <circle cx="370" cy="60" r="4" fill="#22c55e" class="spr-node" />
+                      <circle cx="100" cy="180" r="4" fill="#7f9bb8" class="spr-node" />
+                      <circle cx="100" cy="140" r="3" fill="#9a9994" class="spr-node" />
+                      <circle cx="190" cy="140" r="3" fill="#9a9994" class="spr-node" />
+                      <circle cx="190" cy="100" r="3" fill="#9a9994" class="spr-node" />
+                      <circle cx="280" cy="100" r="3" fill="#9a9994" class="spr-node" />
+                      <circle cx="370" cy="100" r="3" fill="#9a9994" class="spr-node" />
+                      <circle cx="370" cy="60" r="4" fill="#6b9471" class="spr-node" />
                       <!-- Labels -->
-                      <text x="90" y="205" fill="#3b82f6" font-size="10" font-family="monospace" opacity="0.7">SRC</text>
-                      <text x="360" y="50" fill="#22c55e" font-size="10" font-family="monospace" opacity="0.7">DST</text>
+                      <text x="90" y="205" fill="#7f9bb8" font-size="10" font-family="monospace" opacity="0.7">SRC</text>
+                      <text x="360" y="50" fill="#6b9471" font-size="10" font-family="monospace" opacity="0.7">DST</text>
                     </svg>
                   ) : (
                     <svg class="project-svg" viewBox="0 0 504 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <!-- IR Drop voltage waveform visualization -->
                       <!-- VDD rail at top -->
-                      <line x1="40" y1="40" x2="470" y2="40" stroke="#22c55e" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.4" />
-                      <text x="12" y="44" fill="#22c55e" font-size="9" font-family="monospace" opacity="0.7">VDD</text>
+                      <line x1="40" y1="40" x2="470" y2="40" stroke="#6b9471" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.4" />
+                      <text x="12" y="44" fill="#6b9471" font-size="9" font-family="monospace" opacity="0.7">VDD</text>
                       <!-- VDD drooping waveform -->
-                      <path class="vdd-wave" d="M40,40 C70,40 80,42 100,50 C120,58 130,44 160,48 C190,52 200,65 230,70 C260,75 270,55 300,52 C330,49 350,60 380,56 C410,52 430,44 470,42" stroke="#22c55e" stroke-width="2" stroke-linecap="round" fill="none" />
+                      <path class="vdd-wave" d="M40,40 C70,40 80,42 100,50 C120,58 130,44 160,48 C190,52 200,65 230,70 C260,75 270,55 300,52 C330,49 350,60 380,56 C410,52 430,44 470,42" stroke="#6b9471" stroke-width="2" stroke-linecap="round" fill="none" />
                       <!-- IR drop shaded region -->
-                      <path d="M40,40 C70,40 80,42 100,50 C120,58 130,44 160,48 C190,52 200,65 230,70 C260,75 270,55 300,52 C330,49 350,60 380,56 C410,52 430,44 470,42 L470,40 L40,40 Z" fill="#22c55e" opacity="0.06" />
+                      <path d="M40,40 C70,40 80,42 100,50 C120,58 130,44 160,48 C190,52 200,65 230,70 C260,75 270,55 300,52 C330,49 350,60 380,56 C410,52 430,44 470,42 L470,40 L40,40 Z" fill="#6b9471" opacity="0.06" />
 
                       <!-- VSS rail at bottom -->
-                      <line x1="40" y1="180" x2="470" y2="180" stroke="#3b82f6" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.4" />
-                      <text x="12" y="184" fill="#3b82f6" font-size="9" font-family="monospace" opacity="0.7">VSS</text>
+                      <line x1="40" y1="180" x2="470" y2="180" stroke="#7f9bb8" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.4" />
+                      <text x="12" y="184" fill="#7f9bb8" font-size="9" font-family="monospace" opacity="0.7">VSS</text>
                       <!-- VSS bounce waveform -->
-                      <path class="vss-wave" d="M40,180 C60,180 80,178 100,172 C120,166 140,175 160,170 C180,165 200,155 230,150 C260,145 280,162 300,166 C320,170 350,160 380,164 C410,168 440,176 470,178" stroke="#3b82f6" stroke-width="2" stroke-linecap="round" fill="none" />
+                      <path class="vss-wave" d="M40,180 C60,180 80,178 100,172 C120,166 140,175 160,170 C180,165 200,155 230,150 C260,145 280,162 300,166 C320,170 350,160 380,164 C410,168 440,176 470,178" stroke="#7f9bb8" stroke-width="2" stroke-linecap="round" fill="none" />
                       <!-- Ground bounce shaded region -->
-                      <path d="M40,180 C60,180 80,178 100,172 C120,166 140,175 160,170 C180,165 200,155 230,150 C260,145 280,162 300,166 C320,170 350,160 380,164 C410,168 440,176 470,178 L470,180 L40,180 Z" fill="#3b82f6" opacity="0.06" />
+                      <path d="M40,180 C60,180 80,178 100,172 C120,166 140,175 160,170 C180,165 200,155 230,150 C260,145 280,162 300,166 C320,170 350,160 380,164 C410,168 440,176 470,178 L470,180 L40,180 Z" fill="#7f9bb8" opacity="0.06" />
 
                       <!-- Worst IR drop annotation -->
                       <line x1="230" y1="70" x2="230" y2="40" stroke="#ef4444" stroke-width="1" stroke-dasharray="3 2" opacity="0.6" />
                       <text x="236" y="58" fill="#ef4444" font-size="8" font-family="monospace" opacity="0.7">IR drop</text>
 
                       <!-- Worst ground bounce annotation -->
-                      <line x1="230" y1="150" x2="230" y2="180" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 2" opacity="0.6" />
-                      <text x="236" y="168" fill="#f59e0b" font-size="8" font-family="monospace" opacity="0.7">GND bounce</text>
+                      <line x1="230" y1="150" x2="230" y2="180" stroke="#c69a3a" stroke-width="1" stroke-dasharray="3 2" opacity="0.6" />
+                      <text x="236" y="168" fill="#c69a3a" font-size="8" font-family="monospace" opacity="0.7">GND bounce</text>
 
                       <!-- Time axis -->
                       <line x1="40" y1="200" x2="470" y2="200" stroke="rgba(148,163,184,0.3)" stroke-width="0.5" />
@@ -341,7 +341,7 @@ const jsonLd = {
     </div>
   </section>
 
-  <WaveDivider color="#06b6d4" />
+  <WaveDivider color="var(--accent)" />
 
   <!-- ═══════ CONTENT ═══════ -->
   <section class="section" id="content">
