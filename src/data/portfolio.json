@@ -120,11 +120,11 @@
   "projects": {
     "featured": {
       "name": "EMIR Lab",
-      "label": "Flagship Learning Platform",
-      "description": "Learn Static IR Drop through paced visual explanations that connect logic activity, average power, current flow, grid resistance, and voltage loss.",
+      "label": "Flagship EMIR Learning Platform",
+      "description": "A growing visual learning platform for chip power delivery, voltage integrity, and interconnect reliability — from physical power grids to IR drop and electromigration.",
       "href": "https://emir-lab.akarshanarora.com/",
       "browserUrl": "emir-lab.akarshanarora.com",
-      "tags": ["Static IR", "VLSI", "Interactive Learning"]
+      "tags": ["EMIR", "Power Integrity", "Interactive Learning"]
     },
     "suiteLabel": "PDN Toy Tools",
     "suiteLink": "https://pdn-toy-tools.akarshanarora.com/",
