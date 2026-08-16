@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, sessionDrivers } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
@@ -12,6 +12,9 @@ const SITE = 'https://akarshanarora.com';
 // https://astro.build/config
 export default defineConfig({
   site: SITE,
+  session: {
+    driver: sessionDrivers.null(),
+  },
 
   integrations: [
     tailwind({ applyBaseStyles: false }),
