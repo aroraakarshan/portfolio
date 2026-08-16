@@ -238,6 +238,51 @@ const jsonLd = {
       <p class="section-desc" data-reveal style="margin-bottom: 1rem; max-width: 700px;">
         {data.projects.description}
       </p>
+
+      <a
+        href={data.projects.featured.href}
+        target="_blank"
+        rel="noopener"
+        class="emir-feature"
+        data-reveal
+      >
+        <div class="emir-feature-copy">
+          <span class="emir-feature-label">{data.projects.featured.label}</span>
+          <h3>{data.projects.featured.name}</h3>
+          <p>{data.projects.featured.description}</p>
+          <div class="emir-feature-tags">
+            {data.projects.featured.tags.map((tag: string) => <span>{tag}</span>)}
+          </div>
+          <strong>Enter EMIR Lab →</strong>
+        </div>
+        <div class="emir-feature-visual" aria-hidden="true">
+          <div class="emir-browser-bar">
+            <span></span><span></span><span></span>
+            <small>{data.projects.featured.browserUrl}</small>
+          </div>
+          <svg viewBox="0 0 560 300" fill="none">
+            <rect x="35" y="35" width="490" height="225" stroke="#2a2a2c" />
+            {[105, 220, 335, 450].map((x) => (
+              <line x1={x} y1="65" x2={x} y2="230" stroke="#45454a" stroke-width="5" />
+            ))}
+            {[100, 165, 230].map((y) => (
+              <line x1="65" y1={y} x2="495" y2={y} stroke="#45454a" stroke-width="3" />
+            ))}
+            {[105, 220, 335, 450].map((x) => <circle cx={x} cy="65" r="9" fill="#f5f2ec" />)}
+            <path
+              d="M220 65 V165 H335 V230"
+              stroke="#d97547"
+              stroke-width="8"
+              stroke-linecap="square"
+            />
+            <rect x="275" y="190" width="120" height="48" fill="#19191d" stroke="#f5f2ec" />
+            <text x="335" y="218" fill="#f5f2ec" font-size="11" text-anchor="middle" font-family="monospace">
+              LOGIC LOAD
+            </text>
+          </svg>
+        </div>
+      </a>
+
       <a href={data.projects.suiteLink} target="_blank" rel="noopener" class="project-suite-link" data-reveal>
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><rect x="2" y="4" width="20" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.8"/><rect x="2" y="13" width="20" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.8"/><line x1="7" y1="11" x2="7" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="11" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="11" x2="17" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         {data.projects.suiteLabel} →

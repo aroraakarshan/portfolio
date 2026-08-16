@@ -543,6 +543,93 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ───────── PROJECT ───────── */
+.emir-feature {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  min-height: 430px;
+  margin-top: 2.5rem;
+  border: 1px solid rgba(217, 117, 71, 0.38);
+  border-radius: 18px;
+  background: #0b0b0c;
+  overflow: hidden;
+  transition: border-color 0.35s ease, transform 0.35s ease;
+}
+.emir-feature:hover {
+  border-color: #d97547;
+  transform: translateY(-4px);
+}
+.emir-feature-copy {
+  padding: clamp(2rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.emir-feature-label {
+  color: #d97547;
+  font: 600 0.68rem/1.2 monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.emir-feature h3 {
+  margin: 0.8rem 0 1rem;
+  color: #f5f2ec;
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  line-height: 0.95;
+}
+.emir-feature-copy > p {
+  margin: 0;
+  color: #9a9994;
+  line-height: 1.7;
+}
+.emir-feature-tags {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.emir-feature-tags span {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #2a2a2c;
+  color: #9a9994;
+  font-size: 0.68rem;
+}
+.emir-feature-copy > strong {
+  margin-top: 1.8rem;
+  color: #d97547;
+  font-size: 0.85rem;
+}
+.emir-feature-visual {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #2a2a2c;
+  background: #101013;
+}
+.emir-browser-bar {
+  min-height: 45px;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid #2a2a2c;
+}
+.emir-browser-bar > span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4a4a4f;
+}
+.emir-browser-bar small {
+  margin-left: 0.6rem;
+  color: #6b6a66;
+  font: 500 0.62rem monospace;
+}
+.emir-feature-visual svg {
+  width: 100%;
+  margin-block: auto;
+  display: block;
+}
+
 .project-suite-link {
   display: inline-flex;
   align-items: center;
@@ -1224,6 +1311,15 @@ a { color: inherit; text-decoration: none; }
 
 /* ───────── RESPONSIVE ───────── */
 @media (max-width: 768px) {
+  .emir-feature {
+    grid-template-columns: 1fr;
+  }
+  .emir-feature-visual {
+    min-height: 280px;
+    border-left: 0;
+    border-top: 1px solid #2a2a2c;
+  }
+
   .nav-hamburger { display: flex; }
   .nav-links {
     position: fixed;
@@ -1290,4 +1386,3 @@ a { color: inherit; text-decoration: none; }
   .impact-card:last-child { border-bottom: none; }
   .hero-cta { flex-direction: column; align-items: center; }
 }
-
