@@ -18,7 +18,7 @@ const jsonLd = {
   description: data.heroDescription,
   url: Astro.site?.toString(),
   image: ogImage,
-  sameAs: [data.social.linkedin, data.social.github],
+  sameAs: [data.social.linkedin, data.social.github, data.social.topmate],
 };
 ---
 <html lang="en">
@@ -422,28 +422,31 @@ const jsonLd = {
       <h2 class="section-title" data-reveal>Mentorship</h2>
 
       <div class="mentor-hero" data-reveal>
+        <div>
+          <span class="timeline-chip chip-highlight">{data.services.recognition}</span>
+        </div>
         <div class="mentor-stats">
           <div class="mentor-stat">
-            <span class="mentor-stat-value">4.7<span class="mentor-stat-unit">/5</span></span>
+            <span class="mentor-stat-value">{data.services.rating}<span class="mentor-stat-unit">/5</span></span>
             <span class="mentor-stat-label">Rating</span>
           </div>
           <div class="mentor-stat">
-            <span class="mentor-stat-value">40+</span>
-            <span class="mentor-stat-label">Sessions</span>
+            <span class="mentor-stat-value">{data.services.ratings}</span>
+            <span class="mentor-stat-label">Ratings</span>
           </div>
           <div class="mentor-stat">
-            <span class="mentor-stat-value">30</span>
+            <span class="mentor-stat-value">{data.services.testimonials}</span>
             <span class="mentor-stat-label">Testimonials</span>
           </div>
         </div>
         <div class="content-list mentor-list">
-          {data.services.items.map((service: any, i: number) => (
-            <a href={data.services.bookingLink} target="_blank" rel="noopener" class="content-row">
+          {data.services.outcomes.map((outcome: any, i: number) => (
+            <div class="content-row mentor-outcome">
               <span class="content-row-num">{String(i + 1).padStart(2, '0')}</span>
-              <span class="content-row-title">{service.title}</span>
-              <span class="content-row-desc">{service.description}</span>
-              <span class="content-row-arrow">→</span>
-            </a>
+              <span class="content-row-title">{outcome.title}</span>
+              <span class="content-row-desc">{outcome.description}</span>
+              <span class="content-row-arrow">✓</span>
+            </div>
           ))}
         </div>
         <a href={data.services.bookingLink} target="_blank" rel="noopener" class="btn btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">🎯 Book a Session →</a>

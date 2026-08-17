@@ -163,13 +163,28 @@
     ]
   },
   "services": {
-    "stats": "4.7/5 rating · 40+ sessions · 30 testimonials",
+    "rating": "4.8",
+    "ratings": "47",
+    "testimonials": "33",
+    "recognition": "Top 1% on Topmate",
     "bookingLink": "https://topmate.io/akarshanarora",
-    "items": [
-      { "icon": "🐍", "title": "Python for VLSI", "description": "For professionals starting their automation journey — interview prep, CLI tools, common pitfalls, VLSI plots." },
-      { "icon": "⚡", "title": "VLSI PDN Guidance", "description": "For people seeking job opportunities in VLSI CAD/PDN — power delivery, EMIR analysis, and tool flows." },
-      { "icon": "🔬", "title": "Redhawk SeaScape", "description": "Guidance on how to use the SeaScape platform for VLSI power integrity analysis." },
-      { "icon": "🧭", "title": "Career Guidance", "description": "Navigating career paths in VLSI, CAD development, and the semiconductor industry." }
+    "outcomes": [
+      {
+        "title": "Clear diagnosis",
+        "description": "Identify the real technical, learning, or career gap instead of treating only the visible symptom."
+      },
+      {
+        "title": "Focused roadmap",
+        "description": "Leave with a realistic sequence of topics and actions tailored to your current experience and goal."
+      },
+      {
+        "title": "Practical resources",
+        "description": "Get relevant tools, references, and examples without being buried under a generic resource list."
+      },
+      {
+        "title": "Concrete next steps",
+        "description": "Turn the discussion into specific work you can begin immediately after the session."
+      }
     ]
   },
   "testimonials": [
@@ -181,6 +196,7 @@
   ],
   "social": {
     "linkedin": "https://www.linkedin.com/in/aroraakarshan/",
-    "github": "https://github.com/aroraakarshan"
+    "github": "https://github.com/aroraakarshan",
+    "topmate": "https://topmate.io/akarshanarora"
   }
 }

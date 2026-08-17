@@ -1031,6 +1031,15 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+.mentor-outcome {
+  cursor: default;
+}
+.mentor-outcome:hover {
+  transform: none;
+}
+.mentor-outcome .content-row-arrow {
+  color: var(--accent-cyan);
+}
 .mentor-topics {
   display: flex;
   flex-direction: column;
