@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Grain from '../components/Grain.astro';
 import Cursor from '../components/Cursor.astro';
 import Footer from '../components/Footer.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 import '../styles/global.css';
 import data from '../data/portfolio.json';
 
@@ -86,7 +87,7 @@ const jsonLd = {
       <a href="#services" data-scramble>Mentorship</a>
       <a href="#contact" data-scramble>Contact</a>
       <a href={data.social.linkedin} target="_blank" rel="noopener" data-scramble>LinkedIn</a>
-      <a href={data.services.bookingLink} target="_blank" rel="noopener" class="nav-cta">🎯 Book a Session</a>
+      <a href={data.services.bookingLink} target="_blank" rel="noopener" class="nav-cta">Book a Session</a>
     </div>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -191,19 +192,19 @@ const jsonLd = {
       <h2 class="section-title" data-reveal>Numbers That Speak</h2>
       <div class="impact-grid">
         <div class="impact-card" data-reveal>
-          <span class="impact-number" data-count="10">0</span><span class="impact-suffix">+</span>
+          <span class="impact-number" data-count="11">11</span><span class="impact-suffix">+</span>
           <span class="impact-label">Years in VLSI Power Integrity</span>
         </div>
         <div class="impact-card" data-reveal>
-          <span class="impact-number" data-count="50">0</span><span class="impact-suffix">%</span>
+          <span class="impact-number" data-count="50">50</span><span class="impact-suffix">%</span>
           <span class="impact-label">Runtime Reduction Achieved</span>
         </div>
         <div class="impact-card" data-reveal>
-          <span class="impact-number" data-count="1" data-decimals="0">0</span><span class="impact-suffix">B+</span>
+          <span class="impact-number" data-count="1" data-decimals="0">1</span><span class="impact-suffix">B+</span>
           <span class="impact-label">Data Points Compared</span>
         </div>
         <div class="impact-card" data-reveal>
-          <span class="impact-number" data-count="23">0</span><span class="impact-suffix">M</span>
+          <span class="impact-number" data-count="23">23</span><span class="impact-suffix">M</span>
           <span class="impact-label">Net Segments Analyzed</span>
         </div>
       </div>
@@ -218,15 +219,20 @@ const jsonLd = {
       <p class="section-desc" data-reveal style="max-width: 560px;">
         {data.courses.description}
       </p>
-      <a
-        href={data.courses.href}
-        target="_blank" rel="noopener"
-        class="btn btn-primary"
-        data-reveal
-        style="margin-top: 1.5rem;"
-      >
-        Visit yaml-from-zero.akarshanarora.com →
-      </a>
+      <div class="content-list resource-list" data-reveal>
+        {data.courses.items.map((item: any, i: number) => (
+          <a href={item.href} target="_blank" rel="noopener" class="content-row resource-row">
+            <span class="content-row-num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="resource-text">
+              <span class="content-row-title">{item.name}</span>
+              <span class="resource-desc">{item.description}</span>
+            </span>
+            <span class="content-row-arrow">-&gt;</span>
+          </a>
+        ))}
+      </div>
+
+      <NewsletterForm tag="portfolio" />
     </div>
   </section>
 
@@ -449,7 +455,7 @@ const jsonLd = {
             </div>
           ))}
         </div>
-        <a href={data.services.bookingLink} target="_blank" rel="noopener" class="btn btn-primary" style="align-self: flex-start; margin-top: 0.5rem;">🎯 Book a Session →</a>
+        <a href={data.services.bookingLink} target="_blank" rel="noopener" class="btn btn-accent" style="align-self: flex-start; margin-top: 0.5rem;">Book a Session →</a>
       </div>
 
       <!-- Testimonials -->
@@ -475,7 +481,7 @@ const jsonLd = {
         Interested in VLSI tools, interactive education, or collaboration? I'd love to hear from you.
       </p>
       <div class="contact-chips" data-reveal>
-        <a href={data.services.bookingLink} target="_blank" rel="noopener" class="chip chip-primary">🎯 Book a Session</a>
+        <a href={data.services.bookingLink} target="_blank" rel="noopener" class="chip chip-primary">Book a Session</a>
         <a href={data.social.github} target="_blank" rel="noopener" class="chip">⚡ GitHub</a>
         <a href={data.social.linkedin} target="_blank" rel="noopener" class="chip">💼 LinkedIn</a>
       </div>
@@ -669,22 +675,42 @@ const jsonLd = {
       );
     });
 
+    // Chars are grouped per word in a nowrap span so a line can only break between words.
+    function splitIntoChars(root: Element) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const textNodes: Text[] = [];
+      while (walker.nextNode()) textNodes.push(walker.currentNode as Text);
+      textNodes.forEach((node) => {
+        const frag = document.createDocumentFragment();
+        (node.textContent || '').split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(' '));
+            return;
+          }
+          const word = document.createElement('span');
+          word.className = 'split-word';
+          for (const ch of part) {
+            const c = document.createElement('span');
+            c.className = 'char';
+            c.style.cssText = 'display:inline-block;opacity:0;transform:translateY(30px)';
+            c.textContent = ch;
+            word.appendChild(c);
+          }
+          frag.appendChild(word);
+        });
+        node.replaceWith(frag);
+      });
+    }
+
     document.querySelectorAll('.section-title, .contact-headline').forEach((title) => {
       // Add mask element for wipe reveal
       const mask = document.createElement('div');
       mask.classList.add('title-mask');
       title.appendChild(mask);
 
-      // Wrap chars for stagger animation
-      const text = title.innerHTML;
-      // Remove the mask from innerHTML processing by saving and re-adding
       title.removeChild(mask);
-      const originalHtml = title.innerHTML;
-      title.innerHTML = originalHtml.replace(/(<[^>]+>)|(.)/g, (match, tag, char) => {
-        if (tag) return tag;
-        if (char === ' ') return ' ';
-        return `<span class="char" style="display:inline-block;opacity:0;transform:translateY(30px)">${char}</span>`;
-      });
+      splitIntoChars(title);
       title.appendChild(mask);
 
       const chars = title.querySelectorAll('.char');
@@ -813,6 +839,7 @@ const jsonLd = {
       if (numEl) {
         const target = parseFloat(numEl.dataset.count || '0');
         const obj = { val: 0 };
+        numEl.textContent = '0';
         gsap.to(obj, {
           val: target,
           duration: 2,
@@ -890,17 +917,19 @@ const jsonLd = {
     // ═══════════════════════════════════════
     // 12. CONTENT ROWS — stagger slide-in
     // ═══════════════════════════════════════
-    document.querySelectorAll('.content-row').forEach((row, i) => {
-      gsap.fromTo(row,
-        { x: -40, opacity: 0 },
-        {
-          x: 0, opacity: 1,
-          duration: 0.6,
-          ease: 'power3.out',
-          delay: i * 0.08,
-          scrollTrigger: { trigger: '.content-list', start: 'top 85%' },
-        }
-      );
+    document.querySelectorAll('.content-list').forEach((list) => {
+      list.querySelectorAll('.content-row').forEach((row, i) => {
+        gsap.fromTo(row,
+          { x: -40, opacity: 0 },
+          {
+            x: 0, opacity: 1,
+            duration: 0.6,
+            ease: 'power3.out',
+            delay: i * 0.08,
+            scrollTrigger: { trigger: list, start: 'top 85%' },
+          }
+        );
+      });
     });
 
     // ═══════════════════════════════════════

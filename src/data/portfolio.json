@@ -11,8 +11,8 @@
   },
   "heroDescription": "I create interactive simulations and visualizations that turn abstract VLSI and software concepts into hands-on learning experiences.",
   "heroCTAs": [
-    { "label": "View Projects →", "href": "#projects", "style": "primary" },
-    { "label": "🎯 Book a Session", "href": "https://topmate.io/akarshanarora", "style": "primary", "external": true },
+    { "label": "Book a Session", "href": "https://topmate.io/akarshanarora", "style": "accent", "external": true },
+    { "label": "View Projects →", "href": "#projects", "style": "ghost" },
     { "label": "GitHub", "href": "https://github.com/aroraakarshan", "style": "ghost", "external": true }
   ],
   "marqueeItems": [
@@ -39,7 +39,7 @@
       "role": "Senior EMIR CAD Engineer",
       "company": "Microsoft · Bengaluru",
       "highlights": [
-        { "label": "Maia 200", "featured": true },
+        { "label": "AI accelerator", "featured": true },
         { "label": "EMIR" },
         { "label": "PDN" },
         { "label": "CAD Automation" },
@@ -51,14 +51,12 @@
       "role": "Senior Engineer, Lead",
       "company": "Qualcomm · Bengaluru",
       "highlights": [
-        { "label": "Snapdragon 8 Gen 2", "featured": true },
-        { "label": "Snapdragon 8 Gen 1", "featured": true },
-        { "label": "Snapdragon 888", "featured": true },
+        { "label": "Mobile SoCs", "featured": true },
         { "label": "50% runtime reduction" },
         { "label": "Python debug platform" },
         { "label": "Quantus enablement" },
         { "label": "1B data point comparison" },
-        { "label": "TSMC N3E / N4" }
+        { "label": "Advanced nodes" }
       ]
     },
     {
@@ -66,13 +64,11 @@
       "role": "Senior Design Engineer",
       "company": "Qualcomm · Bengaluru",
       "highlights": [
-        { "label": "Snapdragon 865", "featured": true },
-        { "label": "Snapdragon 855", "featured": true },
+        { "label": "Mobile SoCs", "featured": true },
         { "label": "First elastic compute PDN tool" },
         { "label": "Redhawk vs Redhawk-SC" },
         { "label": "23M net segment comparison" },
-        { "label": "PDN CAD flow" },
-        { "label": "SEC 4LPX / 3LPE" }
+        { "label": "PDN CAD flow" }
       ]
     },
     {
@@ -110,11 +106,11 @@
   "courses": {
     "label": "Courses & Tutorials",
     "description": "Free, interactive tutorials and downloadable resources for VLSI engineers.",
-    "href": "https://yaml-from-zero.akarshanarora.com/",
-    "browserUrl": "yaml-from-zero.akarshanarora.com",
-    "tags": [
-      { "label": "Tutorials", "color": "amber" },
-      { "label": "Resources", "color": "green" }
+    "items": [
+      { "name": "YAML from Zero", "href": "https://yaml-from-zero.akarshanarora.com/", "description": "14 interactive lessons on YAML, written for VLSI engineers." },
+      { "name": "EMIR Lab", "href": "https://emir-lab.akarshanarora.com/", "description": "Visual lessons on IR drop and electromigration." },
+      { "name": "PDN Toy Tools", "href": "https://pdn-toy-tools.akarshanarora.com/", "description": "3D visualizers for shortest path resistance and IR drop." },
+      { "name": "Free VLSI PDF bundle", "href": "https://topmate.io/akarshanarora/1684042", "description": "The YAML book plus 4 Python-for-VLSI guides as PDFs." }
     ]
   },
   "projects": {
